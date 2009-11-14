@@ -1,0 +1,5 @@
+{
+	CFBundleName = "Smart Music Player";
+	"CFBundleGetInfoString" = "Smart Music Player version 0.1, Copyright (c) 2009 Washington University in St. Louis.";
+	"NSHumanReadableCopyright" = "Copyright (c) 2009 Washington University.";
+}

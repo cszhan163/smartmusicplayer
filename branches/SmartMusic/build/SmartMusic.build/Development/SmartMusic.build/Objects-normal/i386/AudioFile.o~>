@@ -1,0 +1,67 @@
+In file included from /Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:10:
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.h:17: error: 'AudioFileID' does not name a type
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:14: error: extra qualification 'AudioFile::' on member 'AudioFile'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:14: error: 'AudioFile::AudioFile()' cannot be overloaded
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.h:14: error: with 'AudioFile::AudioFile()'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:18: error: extra qualification 'AudioFile::' on member 'AudioFile'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:18: error: 'AudioFile::~AudioFile()' cannot be overloaded
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.h:15: error: with 'AudioFile::~AudioFile()'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:23: error: 'AudioUnit' has not been declared
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:23: error: extra qualification 'AudioFile::' on member 'prepare'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:87: error: extra qualification 'AudioFile::' on member 'loadAudioFile'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:100: error: expected `}' at end of input
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp: In member function 'void AudioFile::prepare(int&)':
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:25: error: 'UInt64' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:25: error: expected `;' before 'nPackets'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:26: error: 'UInt32' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:26: error: expected `;' before 'propsize'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'afid' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'kAudioFilePropertyAudioDataPacketCount' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'propsize' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'nPackets' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'AudioFileGetProperty' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:27: error: 'verify_noerr' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:29: error: 'CAStreamBasicDescription' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:29: error: expected `;' before 'fileFormat'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:31: error: 'kAudioFilePropertyDataFormat' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:31: error: 'fileFormat' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:35: error: 'ScheduledAudioFileRegion' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:35: error: expected `;' before 'rgn'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:36: error: 'rgn' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:36: error: 'memset' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:37: error: 'kAudioTimeStampSampleTimeValid' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:39: error: 'filePlayCompletionProc' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:40: error: 'self' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:48: error: 'kAudioUnitProperty_ScheduledFileRegion' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:49: error: 'kAudioUnitScope_Global' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:52: error: 'AudioUnitSetProperty' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:55: error: expected `;' before 'defaultVal'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:57: error: 'kAudioUnitProperty_ScheduledFilePrime' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:60: error: 'defaultVal' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:64: error: 'AudioTimeStamp' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:64: error: expected `;' before 'startTime'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:65: error: 'startTime' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:69: error: 'kAudioUnitProperty_ScheduleStartTimeStamp' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp: In member function 'void AudioFile::loadAudioFile(const char*)':
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:88: error: 'FSRef' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:88: error: expected `;' before 'destFSRef'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: 'UInt8' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: 'pathName' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: expected primary-expression before ')' token
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: 'inAudioFileName' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: expected `]' before 'UTF8String'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:89: error: expected `;' before 'UTF8String'
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:91: error: 'destFSRef' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:91: error: 'NULL' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:91: error: 'FSPathMakeRef' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:91: error: 'verify_noerr' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:92: error: 'fsRdPerm' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:92: error: 'mAFID' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:92: error: 'AudioFileOpen' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:94: error: 'unit' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:94: error: 'FILE' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:95: error: 'kAudioUnitProperty_ScheduledFileIDs' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:96: error: 'kAudioUnitScope_Global' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:99: error: 'AudioUnitSetProperty' was not declared in this scope
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp: At global scope:
+/Users/doug/Documents/School/520/project/SmartMusic/AudioFile.cpp:100: error: expected unqualified-id at end of input
