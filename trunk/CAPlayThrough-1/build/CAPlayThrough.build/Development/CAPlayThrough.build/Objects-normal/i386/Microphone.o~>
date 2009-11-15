@@ -1,0 +1,35 @@
+In file included from /Users/doug/Desktop/CAPlayThrough-1/Microphone.cpp:10:
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:13: error: 'AudioDeviceID' has not been declared
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:13: error: 'AudioDeviceID' has not been declared
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:13: error: ISO C++ forbids declaration of 'CAPlayThrough' with no type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:14: error: expected class-name before '(' token
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:16: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:18: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:19: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:20: error: 'Boolean' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:21: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:22: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:24: error: 'AudioDeviceID' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:25: error: 'AudioDeviceID' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:29: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:30: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:32: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:33: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:34: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:35: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:39: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:46: error: 'OSStatus' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:53: error: 'AudioUnit' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:54: error: ISO C++ forbids declaration of 'AudioBufferList' with no type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:54: error: expected ';' before '*' token
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:55: error: 'AudioDevice' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:56: error: ISO C++ forbids declaration of 'CARingBuffer' with no type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:56: error: expected ';' before '*' token
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:59: error: 'Float64' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:60: error: 'Float64' does not name a type
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:61: error: 'Float64' does not name a type
+In file included from /Users/doug/Desktop/CAPlayThrough-1/Microphone.cpp:55:
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:10: error: redefinition of 'class Microphone'
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.h:10: error: previous definition of 'class Microphone'
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.cpp:61: error: 'CAPlayThrough' has not been declared
+/Users/doug/Desktop/CAPlayThrough-1/Microphone.cpp:61: error: expected constructor, destructor, or type conversion before '(' token
