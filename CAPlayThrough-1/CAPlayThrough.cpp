@@ -40,7 +40,18 @@
 */
 #include "CAPlayThrough.h"
 
+static void filePlayCompletionProc (void *userData, ScheduledAudioFileRegion *fileRegion, OSStatus result) {
+	printf("File completed!\n");
+	//stopGraph();
+	
+}
+
 #pragma mark -- CAPlayThrough
+
+#define FILE 0
+#define VARISPEED 1
+#define MIXER 2
+#define OUTPUT 3
 
 // we define the class here so that is is not accessible from any object aside from CAPlayThroughManager
 class CAPlayThrough {
@@ -65,10 +76,15 @@ private:
 	OSStatus SetupGraph(AudioDeviceID out);
 	OSStatus MakeGraph();
 	
+	// Microphone input
 	OSStatus SetupAUHAL(AudioDeviceID in);
 	OSStatus EnableIO();
 	OSStatus CallbackSetup();
 	OSStatus SetupBuffers();
+	
+	// File input
+	OSStatus loadAudioFile (const char * filename);
+	OSStatus prepareFileAU ();
 	
 	void ComputeThruOffset();
 	
@@ -85,6 +101,7 @@ private:
 							   UInt32				inBusNumber,
 							   UInt32				inNumberFrames,
 							   AudioBufferList *	ioData);
+	
 											
 	AudioUnit mInputUnit;
 	AudioBufferList *mInputBuffer;
@@ -93,10 +110,11 @@ private:
 	
 	//AudioUnits and Graph
 	AUGraph mGraph;
-	AUNode mVarispeedNode;
-	AudioUnit mVarispeedUnit;
-	AUNode mOutputNode;
-	AudioUnit mOutputUnit;
+	AudioUnit unit[4];
+	AUNode node[4];
+	
+	// Audio File
+	AudioFileID afid;
 	
 	//Buffer sample info
 	Float64 mFirstInputTime;
@@ -106,7 +124,6 @@ private:
 
 
 #pragma mark ---Public Methods---
-
 
 #pragma mark ---CAPlayThrough Methods---
 CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output):
@@ -128,8 +145,7 @@ CAPlayThrough::~CAPlayThrough()
 	Cleanup();
 }
 
-OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
-{
+OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output) {
     OSStatus err = noErr;
 	//Note: You can interface to input and output devices with "output" audio units.
 	//Please keep in mind that you are only allowed to have one output audio unit per graph (AUGraph).
@@ -148,12 +164,20 @@ OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 	err = SetupBuffers();
 	checkErr(err);
 	
+	loadAudioFile("/Users/doug/Desktop/Bohemian Rhapsody (dc1882876).mp3");
+	
 	// the varispeed unit should only be conected after the input and output formats have been set
-	err = AUGraphConnectNodeInput(mGraph, mVarispeedNode, 0, mOutputNode, 0);
+	err = AUGraphConnectNodeInput(mGraph, node[MIXER], 0, node[OUTPUT], 0);
+	checkErr(err);
+	err = AUGraphConnectNodeInput(mGraph, node[VARISPEED], 0, node[MIXER], 0);
+	checkErr(err);
+	err = AUGraphConnectNodeInput(mGraph, node[FILE], 0, node[MIXER], 1);
 	checkErr(err);
 	
 	err = AUGraphInitialize(mGraph); 
 	checkErr(err);
+	
+	prepareFileAU();
 	
 	//Add latency between the two devices
 	ComputeThruOffset();
@@ -251,7 +275,7 @@ OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 	checkErr(err);
 	
 	//Set the Current Device to the Default Output Unit.
-    err = AudioUnitSetProperty(mOutputUnit,
+    err = AudioUnitSetProperty(unit[OUTPUT],
 							  kAudioOutputUnitProperty_CurrentDevice, 
 							  kAudioUnitScope_Global, 
 							  0, 
@@ -312,7 +336,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	//Tell the output unit not to reset timestamps 
 	//Otherwise sample rate changes will cause sync los
 	UInt32 startAtZero = 0;
-	err = AudioUnitSetProperty(mOutputUnit, 
+	err = AudioUnitSetProperty(unit[OUTPUT], 
 							  kAudioOutputUnitProperty_StartTimestampsAtZero, 
 							  kAudioUnitScope_Global,
 							  0,
@@ -323,7 +347,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	output.inputProc = OutputProc;
 	output.inputProcRefCon = this;
 	
-	err = AudioUnitSetProperty(mVarispeedUnit, 
+	err = AudioUnitSetProperty(unit[VARISPEED], 
 							  kAudioUnitProperty_SetRenderCallback, 
 							  kAudioUnitScope_Input,
 							  0,
@@ -337,7 +361,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 OSStatus CAPlayThrough::MakeGraph()
 {
 	OSStatus err = noErr;
-	AudioComponentDescription varispeedDesc,outDesc;
+	AudioComponentDescription varispeedDesc,outDesc, mixerDesc, fileDesc;
 	
 	//Q:Why do we need a varispeed unit?
 	//A:If the input device and the output device are running at different sample rates
@@ -354,20 +378,38 @@ OSStatus CAPlayThrough::MakeGraph()
 	outDesc.componentFlags = 0;
 	outDesc.componentFlagsMask = 0;
 	
+	mixerDesc.componentType = kAudioUnitType_Mixer;
+	mixerDesc.componentSubType = kAudioUnitSubType_StereoMixer;
+	mixerDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
+	mixerDesc.componentFlags = 0;
+	mixerDesc.componentFlagsMask = 0;
+	
+	fileDesc.componentType = kAudioUnitType_Generator;
+	fileDesc.componentSubType = kAudioUnitSubType_AudioFilePlayer;
+	fileDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
+	fileDesc.componentFlags = 0;
+	fileDesc.componentFlagsMask = 0;
+	
 	//////////////////////////
 	///MAKE NODES
 	//This creates a node in the graph that is an AudioUnit, using
 	//the supplied ComponentDescription to find and open that unit	
-	err = AUGraphAddNode(mGraph, &varispeedDesc, &mVarispeedNode);
+	err = AUGraphAddNode(mGraph, &varispeedDesc, &node[VARISPEED]);
 	checkErr(err);
-	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
+	err = AUGraphAddNode(mGraph, &outDesc, &node[OUTPUT]);
 	checkErr(err);
+	err = AUGraphAddNode(mGraph, &mixerDesc, &node[MIXER]);
+	checkErr(err);
+	err = AUGraphAddNode(mGraph, &fileDesc, &node[FILE]);
 	
 	//Get Audio Units from AUGraph node
-	err = AUGraphNodeInfo(mGraph, mVarispeedNode, NULL, &mVarispeedUnit);   
+	err = AUGraphNodeInfo(mGraph, node[VARISPEED], NULL, &unit[VARISPEED]);   
 	checkErr(err);
-	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
+	err = AUGraphNodeInfo(mGraph, node[OUTPUT], NULL, &unit[OUTPUT]);   
 	checkErr(err);
+	err = AUGraphNodeInfo(mGraph, node[MIXER], NULL, &unit[MIXER]);
+	checkErr(err);
+	err = AUGraphNodeInfo(mGraph, node[FILE], NULL, &unit[FILE]);
 	
 	// don't connect nodes until the varispeed unit has input and output formats set
 
@@ -502,7 +544,7 @@ OSStatus CAPlayThrough::SetupBuffers()
 
 	//Get the Stream Format (Output client side)
 	propertySize = sizeof(asbd_dev2_out);
-	err = AudioUnitGetProperty(mOutputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &asbd_dev2_out, &propertySize);
+	err = AudioUnitGetProperty(unit[OUTPUT], kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &asbd_dev2_out, &propertySize);
 	//printf("=====Output (Device) stream format\n");	
 	//asbd_dev2_out.Print();
 	
@@ -525,7 +567,7 @@ OSStatus CAPlayThrough::SetupBuffers()
 	//Set the new formats to the AUs...
 	err = AudioUnitSetProperty(mInputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &asbd, propertySize);
 	checkErr(err);	
-	err = AudioUnitSetProperty(mVarispeedUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, propertySize);
+	err = AudioUnitSetProperty(unit[VARISPEED], kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, propertySize);
 	checkErr(err);
 	
 	//Set the correct sample rate for the output device, but keep the channel count the same
@@ -534,9 +576,9 @@ OSStatus CAPlayThrough::SetupBuffers()
 	asbd.mSampleRate =rate;
 	propertySize = sizeof(asbd);
 	//Set the new audio stream formats for the rest of the AUs...
-	err = AudioUnitSetProperty(mVarispeedUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &asbd, propertySize);
+	err = AudioUnitSetProperty(unit[VARISPEED], kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &asbd, propertySize);
 	checkErr(err);	
-	err = AudioUnitSetProperty(mOutputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, propertySize);
+	err = AudioUnitSetProperty(unit[OUTPUT], kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, propertySize);
 	checkErr(err);
 
 	//calculate number of buffers from channels
@@ -560,12 +602,99 @@ OSStatus CAPlayThrough::SetupBuffers()
     return err;
 }
 
-void	CAPlayThrough::ComputeThruOffset()
-{
+void CAPlayThrough::ComputeThruOffset() {
 	//The initial latency will at least be the saftey offset's of the devices + the buffer sizes
 	mInToOutSampleOffset = SInt32(mInputDevice.mSafetyOffset +  mInputDevice.mBufferSizeFrames +
 						mOutputDevice.mSafetyOffset + mOutputDevice.mBufferSizeFrames);
 }
+
+#pragma mark -
+#pragma mark -- File Playback --
+OSStatus CAPlayThrough::loadAudioFile (const char * filename) {
+	
+	OSStatus err = noErr;
+	FSRef destFSRef;
+	UInt8 *pathName = (UInt8 *)filename;
+	
+	
+	err = FSPathMakeRef(pathName, &destFSRef, NULL);
+	checkErr (err);
+	err = AudioFileOpen(&destFSRef, fsRdPerm, 0, &afid);
+	checkErr (err);
+	err = AudioUnitSetProperty(	unit[FILE], 
+							   kAudioUnitProperty_ScheduledFileIDs,
+							   kAudioUnitScope_Global,
+							   0,
+							   &afid,
+							   sizeof(afid) );
+	
+	return err;
+}
+
+
+OSStatus CAPlayThrough::prepareFileAU () {
+	// calculate the duration
+	UInt64 nPackets;
+	UInt32 propsize = sizeof(nPackets);
+	verify_noerr (AudioFileGetProperty(afid, kAudioFilePropertyAudioDataPacketCount, &propsize, &nPackets));
+	
+	CAStreamBasicDescription fileFormat;
+	propsize = sizeof(CAStreamBasicDescription);
+	verify_noerr (AudioFileGetProperty(afid, kAudioFilePropertyDataFormat, &propsize, &fileFormat));
+	
+	//Float64 fileDuration = (nPackets * fileFormat.mFramesPerPacket) / fileFormat.mSampleRate;
+	
+	ScheduledAudioFileRegion rgn;
+	memset (&rgn.mTimeStamp, 0, sizeof(rgn.mTimeStamp));
+	rgn.mTimeStamp.mFlags = kAudioTimeStampSampleTimeValid;
+	rgn.mTimeStamp.mSampleTime = 0;
+	rgn.mCompletionProc = filePlayCompletionProc;
+	rgn.mCompletionProcUserData = this;
+	rgn.mAudioFile = afid;
+	rgn.mLoopCount = 1;
+	rgn.mStartFrame = 0;
+	rgn.mFramesToPlay = UInt32(nPackets * fileFormat.mFramesPerPacket);
+	
+	// tell the file player AU to play all of the file
+	verify_noerr (AudioUnitSetProperty(	unit[FILE], 
+									   kAudioUnitProperty_ScheduledFileRegion, 
+									   kAudioUnitScope_Global, 
+									   0,
+									   &rgn, 
+									   sizeof(rgn)));
+	
+	// prime the fp AU with default values
+	UInt32 defaultVal = 0;
+	verify_noerr (AudioUnitSetProperty(	unit[FILE],
+									   kAudioUnitProperty_ScheduledFilePrime, 
+									   kAudioUnitScope_Global,
+									   0,
+									   &defaultVal, 
+									   sizeof(defaultVal)));
+	
+	// tell the fp AU when to start playing (this ts is in the AU's render time stamps; -1 means next render cycle)
+	AudioTimeStamp startTime;
+	memset (&startTime, 0, sizeof(startTime));
+	startTime.mFlags = kAudioTimeStampSampleTimeValid;
+	startTime.mSampleTime = -1;
+	verify_noerr (AudioUnitSetProperty(	unit[FILE],
+									   kAudioUnitProperty_ScheduleStartTimeStamp, 
+									   kAudioUnitScope_Global, 
+									   0,
+									   &startTime, 
+									   sizeof(startTime)));
+	
+	verify_noerr (AudioUnitSetProperty(	unit[FILE],
+									   kAudioUnitProperty_ScheduleStartTimeStamp, 
+									   kAudioUnitScope_Global, 
+									   0,
+									   &startTime, 
+									   sizeof(startTime)));
+	
+	return noErr;
+}
+
+
 
 #pragma mark -
 #pragma mark -- IO Procs --
@@ -635,7 +764,7 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 	checkErr(err);
 	
 	rate = inTS.mRateScalar / outTS.mRateScalar;
-	err = AudioUnitSetParameter(This->mVarispeedUnit,kVarispeedParam_PlaybackRate,kAudioUnitScope_Global,0, rate,0);
+	err = AudioUnitSetParameter(This->unit[VARISPEED],kVarispeedParam_PlaybackRate,kAudioUnitScope_Global,0, rate,0);
 	checkErr(err);
 	
 	//get Delta between the devices and add it to the offset
