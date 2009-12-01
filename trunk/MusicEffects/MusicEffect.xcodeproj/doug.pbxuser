@@ -1,0 +1,195 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeExecutable = 91BB7FB910B6F8370000311F /* MusicEffect */;
+		activeSDKPreference = macosx10.6;
+		activeTarget = F408D50007709DF60065702D /* MusicEffect */;
+		codeSenseManager = 91BB7FE110B6F8580000311F /* Code sense */;
+		executables = (
+			91BB7FB910B6F8370000311F /* MusicEffect */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					834,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 281395774;
+			PBXWorkspaceStateSaveDate = 281395774;
+		};
+		perUserProjectItems = {
+			9100491810C428B10087AC35 = 9100491810C428B10087AC35 /* PBXTextBookmark */;
+			9100491910C428B10087AC35 = 9100491910C428B10087AC35 /* PBXTextBookmark */;
+			91CC9CB010C05DAC00C95A24 = 91CC9CB010C05DAC00C95A24 /* PBXTextBookmark */;
+			91CC9CB110C05DAC00C95A24 = 91CC9CB110C05DAC00C95A24 /* PBXTextBookmark */;
+			91CC9CBF10C05DF600C95A24 = 91CC9CBF10C05DF600C95A24 /* PBXTextBookmark */;
+			91CC9CCB10C05E6500C95A24 = 91CC9CCB10C05E6500C95A24 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 91BB7FE010B6F8580000311F /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	3E9DB8DF076F4C07006BE739 /* CAUHWindowController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1012, 650}}";
+			sepNavSelRange = "{292, 0}";
+			sepNavVisRange = "{378, 844}";
+		};
+	};
+	3E9DB8E0076F4C07006BE739 /* CAUHWindowController.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 6227}}";
+			sepNavSelRange = "{14101, 0}";
+			sepNavVisRange = "{13939, 524}";
+		};
+	};
+	3E9DC31C076F4F15006BE739 /* AudioFileReceiver_Protocol.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1012, 512}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 103}";
+		};
+	};
+	7950D27904E864C900A4A77E /* AudioFileListView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1012, 512}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 114}";
+		};
+	};
+	7950D27A04E864C900A4A77E /* AudioFileListView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 1521}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 200}";
+		};
+	};
+	9100491810C428B10087AC35 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3E9DB8E0076F4C07006BE739 /* CAUHWindowController.mm */;
+		name = "CAUHWindowController.mm: 452";
+		rLen = 0;
+		rLoc = 14101;
+		rType = 0;
+		vrLen = 970;
+		vrLoc = 13589;
+	};
+	9100491910C428B10087AC35 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3E9DB8DF076F4C07006BE739 /* CAUHWindowController.h */;
+		name = "CAUHWindowController.h: 15";
+		rLen = 0;
+		rLoc = 292;
+		rType = 0;
+		vrLen = 844;
+		vrLoc = 378;
+	};
+	91BB7FB910B6F8370000311F /* MusicEffect */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = MusicEffect;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	91BB7FE010B6F8580000311F /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	91BB7FE110B6F8580000311F /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	91CC9CB010C05DAC00C95A24 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3E9DC31C076F4F15006BE739 /* AudioFileReceiver_Protocol.h */;
+		name = "AudioFileReceiver_Protocol.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 103;
+		vrLoc = 0;
+	};
+	91CC9CB110C05DAC00C95A24 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7950D27904E864C900A4A77E /* AudioFileListView.h */;
+		name = "AudioFileListView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 114;
+		vrLoc = 0;
+	};
+	91CC9CBF10C05DF600C95A24 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7950D27A04E864C900A4A77E /* AudioFileListView.m */;
+		name = "AudioFileListView.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 664;
+		vrLoc = 0;
+	};
+	91CC9CCB10C05E6500C95A24 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3E9DB8DF076F4C07006BE739 /* CAUHWindowController.h */;
+		name = "CAUHWindowController.h: 15";
+		rLen = 0;
+		rLoc = 292;
+		rType = 0;
+		vrLen = 793;
+		vrLoc = 0;
+	};
+	F408D50007709DF60065702D /* MusicEffect */ = {
+		activeExec = 0;
+		executables = (
+			91BB7FB910B6F8370000311F /* MusicEffect */,
+		);
+	};
+}
