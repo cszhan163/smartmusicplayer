@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 42;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,7 @@
 		F408D50B07709DF60065702D /* CAComponentDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EECC3E4076E82F1005947B9 /* CAComponentDescription.h */; };
 		F408D50C07709DF60065702D /* CAUHWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9DB8DF076F4C07006BE739 /* CAUHWindowController.h */; };
 		F408D50D07709DF60065702D /* AudioFileReceiver_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9DC31C076F4F15006BE739 /* AudioFileReceiver_Protocol.h */; };
-		F408D50F07709DF60065702D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7950D26C04E85CE100A4A77E /* Info.plist */; };
+		F408D50F07709DF60065702D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7950D26C04E85CE100A4A77E /* InfoPlist.strings */; };
 		F408D51007709DF60065702D /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7950D26E04E85CE100A4A77E /* MainMenu.nib */; };
 		F408D51207709DF60065702D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7950D26604E85CBE00A4A77E /* main.m */; };
 		F408D51307709DF60065702D /* AudioFileListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7950D27A04E864C900A4A77E /* AudioFileListView.m */; };
@@ -54,7 +54,7 @@
 		4C80C58E044B293400CA2588 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
 		4CE784A604C88BBE00CA25AE /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		7950D26604E85CBE00A4A77E /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
-		7950D26D04E85CE100A4A77E /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; name = English; path = Resources/English.lproj/Info.plist; sourceTree = "<group>"; };
+		7950D26D04E85CE100A4A77E /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7950D26F04E85CE100A4A77E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = Resources/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		7950D27904E864C900A4A77E /* AudioFileListView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AudioFileListView.h; path = Source/AudioFileListView.h; sourceTree = "<group>"; };
 		7950D27A04E864C900A4A77E /* AudioFileListView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AudioFileListView.m; path = Source/AudioFileListView.m; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 		A343966305ADD6D600BEB440 /* CAMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CAMutex.cpp; sourceTree = "<group>"; };
 		A343966405ADD6D600BEB440 /* CAMutex.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAMutex.h; sourceTree = "<group>"; };
 		A343966805ADD70000BEB440 /* CAHostTimeBase.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CAHostTimeBase.cpp; sourceTree = "<group>"; };
-		F408D52607709DF60065702D /* Info-SmartMusic.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-SmartMusic.plist"; sourceTree = "<group>"; };
-		F408D52707709DF60065702D /* SmartMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F408D52607709DF60065702D /* Info-MusicEffect.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-MusicEffect.plist"; sourceTree = "<group>"; };
+		F408D52707709DF60065702D /* MusicEffect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicEffect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F791B0B00BD6E4690075E49E /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
 		F791B0B10BD6E4690075E49E /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +96,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
-				F408D52607709DF60065702D /* Info-SmartMusic.plist */,
+				F408D52607709DF60065702D /* Info-MusicEffect.plist */,
 			);
 			name = CocoaAUPluginSample;
 			sourceTree = "<group>";
@@ -113,7 +113,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7950D26C04E85CE100A4A77E /* Info.plist */,
+				7950D26C04E85CE100A4A77E /* InfoPlist.strings */,
 				7950D26E04E85CE100A4A77E /* MainMenu.nib */,
 			);
 			name = Resources;
@@ -155,7 +155,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F408D52707709DF60065702D /* SmartMusic.app */,
+				F408D52707709DF60065702D /* MusicEffect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 			);
 			name = PublicUtility;
 			path = Extras/CoreAudio/PublicUtility;
-			sourceTree = DEVELOPER_DIR;
+			sourceTree = SYSTEM_DEVELOPER_DIR;
 		};
 /* End PBXGroup section */
 
@@ -216,9 +216,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F408D50007709DF60065702D /* SmartMusic */ = {
+		F408D50007709DF60065702D /* MusicEffect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E4D9CAB08980E400066D958 /* Build configuration list for PBXNativeTarget "SmartMusic" */;
+			buildConfigurationList = 3E4D9CAB08980E400066D958 /* Build configuration list for PBXNativeTarget "MusicEffect" */;
 			buildPhases = (
 				F408D50107709DF60065702D /* Headers */,
 				F408D50E07709DF60065702D /* Resources */,
@@ -230,10 +230,10 @@
 			);
 			dependencies = (
 			);
-			name = SmartMusic;
+			name = MusicEffect;
 			productInstallPath = "$(USER_APPS_DIR)";
 			productName = HostApp;
-			productReference = F408D52707709DF60065702D /* SmartMusic.app */;
+			productReference = F408D52707709DF60065702D /* MusicEffect.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,14 +241,14 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 3E4D9CAF08980E400066D958 /* Build configuration list for PBXProject "SmartMusic" */;
-			compatibilityVersion = "Xcode 3.1";
+			buildConfigurationList = 3E4D9CAF08980E400066D958 /* Build configuration list for PBXProject "MusicEffect" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* CocoaAUPluginSample */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F408D50007709DF60065702D /* SmartMusic */,
+				F408D50007709DF60065702D /* MusicEffect */,
 			);
 		};
 /* End PBXProject section */
@@ -258,7 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F408D50F07709DF60065702D /* Info.plist in Resources */,
+				F408D50F07709DF60065702D /* InfoPlist.strings in Resources */,
 				F408D51007709DF60065702D /* MainMenu.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,12 +296,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7950D26C04E85CE100A4A77E /* Info.plist */ = {
+		7950D26C04E85CE100A4A77E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7950D26D04E85CE100A4A77E /* English */,
 			);
-			name = Info.plist;
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		7950D26E04E85CE100A4A77E /* MainMenu.nib */ = {
@@ -319,8 +319,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "Info-SmartMusic.plist";
-				PRODUCT_NAME = SmartMusic;
+				INFOPLIST_FILE = "Info-MusicEffect.plist";
+				PRODUCT_NAME = MusicEffect;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -333,8 +333,8 @@
 		3E4D9CAD08980E400066D958 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Info-SmartMusic.plist";
-				PRODUCT_NAME = SmartMusic;
+				INFOPLIST_FILE = "Info-MusicEffect.plist";
+				PRODUCT_NAME = MusicEffect;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -347,8 +347,8 @@
 		3E4D9CAE08980E400066D958 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Info-SmartMusic.plist";
-				PRODUCT_NAME = SmartMusic;
+				INFOPLIST_FILE = "Info-MusicEffect.plist";
+				PRODUCT_NAME = MusicEffect;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -362,7 +362,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = macosx10.5;
 			};
 			name = Development;
 		};
@@ -376,7 +375,6 @@
 					x86_64,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = macosx10.5;
 			};
 			name = Deployment;
 		};
@@ -384,14 +382,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = macosx10.5;
 			};
 			name = Default;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E4D9CAB08980E400066D958 /* Build configuration list for PBXNativeTarget "SmartMusic" */ = {
+		3E4D9CAB08980E400066D958 /* Build configuration list for PBXNativeTarget "MusicEffect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E4D9CAC08980E400066D958 /* Development */,
@@ -401,7 +398,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		3E4D9CAF08980E400066D958 /* Build configuration list for PBXProject "SmartMusic" */ = {
+		3E4D9CAF08980E400066D958 /* Build configuration list for PBXProject "MusicEffect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E4D9CB008980E400066D958 /* Development */,
