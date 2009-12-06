@@ -13,36 +13,31 @@
 
 #import "AudioFileReceiver_Protocol.h"
 
-@class AudioFileListView;
 class CAComponent;
 
 #define MAX_UNITS 12
 
-@interface HostingWindowController : NSWindowController <AudioFileReceiver, NSBrowserDelegate> {
+@interface HostingWindowController : NSWindowController <NSBrowserDelegate> {
 	
-    IBOutlet NSButton *				uiAudioFileButton;
-    IBOutlet NSPopUpButton *		audioUnitPopup;
+    IBOutlet NSButton *				openFileButton;
+	IBOutlet NSButton *				playButton;
+	IBOutlet NSButton *				stopButton;
+    
     IBOutlet NSBox *				uiAUViewContainer;
 	
 	// Audio Graph Configuration
 	IBOutlet NSBrowser *			audioUnitBrowser;
-	IBOutlet NSSegmentedControl *	audioUnitBrowserControl;
+	IBOutlet NSPopUpButton *		audioUnitPopup;
     
-	IBOutlet NSButton *				uiPlayStop;
-	
-
-    IBOutlet NSButton *				uiPlayStopButton;
-    IBOutlet AudioFileListView *	uiAudioFileTableView;
     IBOutlet NSTextField *			songName;
+	NSString *						fileName;
     
     NSScrollView *					mScrollView;
-    
-    NSMutableArray *				mAudioFileList;
 
 	AudioFileID						mAFID;
 	AUGraph							mGraph;
-	AUNode							mFileNode, mixerNode, mOutputNode;
-	AudioUnit						mFileUnit, mixerUnit, mOutputUnit;
+	AUNode							mFileNode, mOutputNode;
+	AudioUnit						mFileUnit, mOutputUnit;
 	
 	CAComponent *					allAudioUnits;
 	AudioUnit						activeUnits[MAX_UNITS];
@@ -52,28 +47,27 @@ class CAComponent;
 }
 
 
-- (void)stopGraph;
 
 #pragma mark IB Actions
 - (IBAction) addAudioUnit:(id)sender;
-- (IBAction)iaPlayStopButtonPressed:(id)sender;
+- (IBAction) playPause:(id)sender;
 
 - (IBAction) stopMusic: (id)sender;
 - (IBAction) selectAudioUnit :(id)sender;
+- (IBAction) selectFile :(id)sender;
 
 
 
-+ (BOOL)plugInClassIsValid:(Class) pluginClass;
-- (void)cleanup;
-- (void)createGraph;
-- (void)startGraph;
-- (void)stopGraph;
-- (void)destroyGraph;
-- (void)showAudioUnit:(AudioUnit)inAU;
-- (void)prepareFileAudioUnit;
-- (void)synchronizePlayStopButton;
-- (void)buildAudioUnitList;
-- (void)addLinkToFiles:(NSArray *)inFiles;
-- (void)loadAudioFile:(NSString *)inAudioFileName;
++ (BOOL) plugInClassIsValid:(Class) pluginClass;
+- (void) cleanup;
+- (void) createGraph;
+- (void) startGraph;
+- (void) stopGraph;
+- (void) destroyGraph;
+- (void) showAudioUnit:(AudioUnit)inAU;
+- (void) prepareFileAudioUnit;
+- (void) synchronizePlayStopButton;
+- (void) buildAudioUnitList;
+- (void) loadAudioFile:(NSString *)inAudioFileName;
 
 @end

@@ -7,7 +7,6 @@
 #include "CAStreamBasicDescription.h"
 
 #import "WindowController.h"
-#import "AudioFileListView.h"
 
 
 void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
@@ -32,7 +31,6 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 }
 
 - (void)awakeFromNib {
-    mAudioFileList = [[NSMutableArray alloc] init];
 	numActiveUnits = 0;
     
     // Create AudioUnit view scroll view
@@ -56,8 +54,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 -(void)cleanup {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-    [mAudioFileList release];
+
 	delete [] allAudioUnits;
     
 	if(mAFID)
@@ -83,21 +80,14 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 								   kAudioUnitManufacturer_Apple	);
 	verify_noerr (AUGraphAddNode(mGraph, &desc, &mFileNode));
 	
-	desc = CAComponentDescription (	kAudioUnitType_Mixer,
-								   kAudioUnitSubType_StereoMixer,
-								   kAudioUnitManufacturer_Apple	);
-	verify_noerr (AUGraphAddNode(mGraph, &desc, &mixerNode));
-	
 	verify_noerr (AUGraphOpen(mGraph));
     verify_noerr (AUGraphNodeInfo(mGraph, mFileNode, NULL, &mFileUnit));
     verify_noerr (AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit));
-	verify_noerr (AUGraphNodeInfo(mGraph, mixerNode, NULL, &mixerUnit));
 }
 
 
 - (void)startGraph {
-    AUGraphConnectNodeInput (mGraph, mixerNode, 0, mOutputNode, 0);
-	AUGraphConnectNodeInput (mGraph, mFileNode, 0, mixerNode, 0);
+	AUGraphConnectNodeInput (mGraph, mFileNode, 0, mOutputNode, 0);
 	
 	AUGraphUpdate (mGraph, NULL);
 	CAShow(mGraph);
@@ -114,18 +104,17 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 	int i = numActiveUnits - 1;
 	if (numActiveUnits == 0) {
-		verify_noerr (AUGraphConnectNodeInput (mGraph, mFileNode, 0, mixerNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (mGraph, mFileNode, 0, mOutputNode, 0));
 	} else if (numActiveUnits == 1) {
-		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[0], 0, mixerNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[0], 0, mOutputNode, 0));
 		verify_noerr (AUGraphConnectNodeInput (mGraph, mFileNode, 0, activeNodes[0], 0));
 	} else {
-		verify_noerr (AUGraphDisconnectNodeInput(mGraph, mixerNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[i], 0, mixerNode, 0));
+		verify_noerr (AUGraphDisconnectNodeInput(mGraph, mOutputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[i], 0, mOutputNode, 0));
 		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[i-1], 0, activeNodes[i], 0));
 	}
 	AUGraphUpdate (mGraph, NULL);
-	CAShow(mGraph);
-
+	CAShow(mGraph);	// DEBUG output
 }
 
 
@@ -321,7 +310,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
  
 
 - (void)synchronizePlayStopButton {
-    [uiPlayStopButton setEnabled:[mAudioFileList count] > 0];
+    [playButton setEnabled:(fileName != nil)];
 }
 
 
@@ -341,20 +330,11 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	}
 	
     //   [3] enable AudioFileDrawerToggle button for effects
-	[uiAudioFileButton setEnabled:YES];
+	[openFileButton setEnabled:YES];
 	
     [self synchronizePlayStopButton];
     [self addAudioUnit:self]; // Select first AudioUnit & show
 }
-
-
-- (void)addLinkToFiles:(NSArray *)inFiles {
-    [mAudioFileList addObjectsFromArray:inFiles];
-    [self synchronizePlayStopButton];
-    [uiAudioFileTableView reloadData];
-}
-
-
 
 
 - (IBAction) addAudioUnit :(id)sender {
@@ -387,6 +367,20 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 }
 
 
+- (IBAction) selectFile :(id)sender {
+	// Create the file chooser
+	NSOpenPanel * openDialog = [NSOpenPanel openPanel];
+	[openDialog setCanChooseFiles:YES];
+	[openDialog setCanChooseDirectories: NO];
+	[openDialog setAllowsMultipleSelection: NO];
+	
+	// Display the dialog.  If the OK button was pressed, process the files.
+	if ( [openDialog runModal] == NSFileHandlingPanelOKButton ) {
+		fileName = [[(NSURL*)[[openDialog URLs] objectAtIndex:0] path] retain];
+		[self synchronizePlayStopButton];
+	}
+}
+
 #pragma mark -
 #pragma mark Playback
 
@@ -412,33 +406,30 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 
 
-- (IBAction)iaPlayStopButtonPressed:(id)sender {
-    if (sender == self) {
-        // change button icon manually if this function is called internally
-        [uiPlayStopButton setState: NSOnState]; //([uiPlayStopButton state] == NSOffState) ? NSOnState : NSOffState];
-    }
-    
+- (IBAction) playPause:(id)sender {
+    if (sender == self)
+        [playButton setState: ([playButton state] == NSOffState) ? NSOnState : NSOffState];
+
+	
     Boolean isRunning = FALSE;
 	verify_noerr (AUGraphIsRunning(mGraph, &isRunning));
 	
-	// [1] if the AUGraph is running, stop it
     if (isRunning) {
-        // stop graph, update UI & return
-		[self stopGraph];
-		
+        AudioUnitReset(mFileUnit, kAudioUnitScope_Global, 0);
+		// TODO mark where the file is
         return;
     }
-    
-	// [2] otherwise start the AUGraph
-    // load file
-	int selectedRow = [uiAudioFileTableView selectedRow];
-	if ( (selectedRow < 0) || ([mAudioFileList count] == 0) ) return;	// no file selected
-		
-	NSString *audioFileName = (NSString *)[mAudioFileList objectAtIndex:selectedRow];
-	[self loadAudioFile:audioFileName];
-		
-	// set filename in UI
-	[songName setStringValue:[audioFileName lastPathComponent]];
+	// TODO resume playback
+	
+	// Initialize new file
+	if (fileName == nil) {
+		NSLog(@"AAHHH");
+	}
+	
+	NSLog(@"%@", fileName);
+	
+	[self loadAudioFile:fileName];
+	[songName setStringValue:[fileName lastPathComponent]];
     
 	[self startGraph];
 }
@@ -446,20 +437,6 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 #pragma mark -
 #pragma mark Delegate
-
-
-
-- (int)numberOfRowsInTableView:(NSTableView *)inTableView {
-    int count = [mAudioFileList count];
-    return (count > 0) ? count : 1;
-}
-
-
-- (id)tableView:(NSTableView *)inTableView objectValueForTableColumn:(NSTableColumn *)inTableColumn row:(int)inRow {
-    int count = [mAudioFileList count];
-    return (count > 0) ?	[(NSString *)[mAudioFileList objectAtIndex:inRow] lastPathComponent] :
-                            @"< drag audio files here >";
-}
 
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)inSender {
@@ -505,6 +482,15 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	return YES;
 }
 
+
+
+/** NSOpenPanel::shouldShowFilename
+ Limits the files that can be opened to valid music formats supported by CoreAudio. */
+- (BOOL)panel:(id)sender shouldShowFilename:(NSString*)filename {
+	
+	
+	return YES;
+}
 
 #pragma mark -
 
