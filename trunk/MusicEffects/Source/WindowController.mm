@@ -35,7 +35,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
     mAudioFileList = [[NSMutableArray alloc] init];
 	numActiveUnits = 0;
     
-    // create scroll-view
+    // Create AudioUnit view scroll view
     NSRect frameRect = [[uiAUViewContainer contentView] frame];
     mScrollView = [[[NSScrollView alloc] initWithFrame:frameRect] autorelease];
     [mScrollView setDrawsBackground:NO];
@@ -43,10 +43,10 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
     [mScrollView setHasVerticalScroller:YES];
     [uiAUViewContainer setContentView:mScrollView];
     
-    // dispatched setup
+    // Initialize audio components
 	[self createGraph];
 	[self buildAudioUnitList];
-	[audioUnitBrowser setDoubleAction: @selector(handleDoubleClick:)];
+	[audioUnitBrowser setDoubleAction: @selector(selectAudioUnit:)];
     
 	// make this the app. delegate
 	[NSApp setDelegate:self];
@@ -215,8 +215,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 			id factoryInstance = [[[factoryClass alloc] init] autorelease];
 			NSAssert (factoryInstance != nil, @"Could not create an instance of the AU view factory");
 			// make a view
-			AUView = [factoryInstance	uiViewForAudioUnit:inAU
-												withSize:[[mScrollView contentView] bounds].size];
+			AUView = [factoryInstance uiViewForAudioUnit:inAU withSize:[[mScrollView contentView] bounds].size];
 			
 			// cleanup
 			[CocoaViewBundlePath release];
@@ -328,8 +327,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 - (void) buildAudioUnitList {
 	delete [] allAudioUnits;
-	[uiAUPopUpButton removeAllItems];
-	
+
 	int count = CAComponentDescription(kAudioUnitType_Effect).Count();
 	CAComponentDescription desc = CAComponentDescription(kAudioUnitType_Effect);
 	CAComponent *last = NULL;
@@ -339,7 +337,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 		CAComponent temp = CAComponent(desc, last);
 		last = &temp;
 		allAudioUnits[i] = temp;
-		[uiAUPopUpButton addItemWithTitle:(NSString *)(temp.GetAUName())];
+		[audioUnitPopup addItemWithTitle:(NSString *)(temp.GetAUName())];
 	}
 	
     //   [3] enable AudioFileDrawerToggle button for effects
@@ -362,7 +360,10 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 - (IBAction) addAudioUnit :(id)sender {
 	
 
-	int index = [uiAUPopUpButton indexOfSelectedItem];
+	int index = [audioUnitPopup indexOfSelectedItem] - 1;
+	if (index < 0)
+		index = 0;
+	//[audioUnitPopup select
 	AudioComponentDescription desc = allAudioUnits[index].Desc();
 	
 	int i = numActiveUnits;
@@ -371,14 +372,19 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	verify_noerr (AudioUnitInitialize(activeUnits[i]));
 	
 	++numActiveUnits;
-	[self updateGraph];
-	[self showAudioUnit: activeUnits[i]];
 	
 	activeNames[i] = (NSString*)allAudioUnits[index].GetAUName();
 	[audioUnitBrowser reloadColumn:0];
+	
+	[self updateGraph];
+	[self showAudioUnit: activeUnits[i]];
 }
 
 
+- (IBAction) selectAudioUnit :(id)sender {
+	int i = [audioUnitBrowser selectedRowInColumn:0];
+	[self showAudioUnit: activeUnits[i]];
+}
 
 
 #pragma mark -
@@ -420,7 +426,6 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
         // stop graph, update UI & return
 		[self stopGraph];
 		
-        [uiAUPopUpButton setEnabled:YES];
         return;
     }
     
@@ -433,7 +438,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	[self loadAudioFile:audioFileName];
 		
 	// set filename in UI
-	[uiAudioFileNowPlayingName setStringValue:[audioFileName lastPathComponent]];
+	[songName setStringValue:[audioFileName lastPathComponent]];
     
 	[self startGraph];
 }
@@ -498,12 +503,6 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 - (BOOL)browser:(NSBrowser *)browser writeRowsWithIndexes:(NSIndexSet *)rowIndexes inColumn:(NSInteger)column toPasteboard:(NSPasteboard *)pasteboard {
 	return YES;
-}
-
-
-- (void)handleDoubleClick: (id)sender {
-	int i = [audioUnitBrowser selectedRowInColumn:0];
-	[self showAudioUnit: activeUnits[i]];
 }
 
 
