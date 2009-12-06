@@ -21,17 +21,19 @@ class CAComponent;
 @interface HostingWindowController : NSWindowController <AudioFileReceiver, NSBrowserDelegate> {
 	
     IBOutlet NSButton *				uiAudioFileButton;
-    IBOutlet NSPopUpButton *		uiAUPopUpButton;
+    IBOutlet NSPopUpButton *		audioUnitPopup;
     IBOutlet NSBox *				uiAUViewContainer;
 	
+	// Audio Graph Configuration
 	IBOutlet NSBrowser *			audioUnitBrowser;
+	IBOutlet NSSegmentedControl *	audioUnitBrowserControl;
     
 	IBOutlet NSButton *				uiPlayStop;
 	
 
     IBOutlet NSButton *				uiPlayStopButton;
     IBOutlet AudioFileListView *	uiAudioFileTableView;
-    IBOutlet NSTextField *			uiAudioFileNowPlayingName;
+    IBOutlet NSTextField *			songName;
     
     NSScrollView *					mScrollView;
     
@@ -57,7 +59,7 @@ class CAComponent;
 - (IBAction)iaPlayStopButtonPressed:(id)sender;
 
 - (IBAction) stopMusic: (id)sender;
-
+- (IBAction) selectAudioUnit :(id)sender;
 
 
 
@@ -66,7 +68,6 @@ class CAComponent;
 - (void)createGraph;
 - (void)startGraph;
 - (void)stopGraph;
-//- (void)connectGraph;
 - (void)destroyGraph;
 - (void)showAudioUnit:(AudioUnit)inAU;
 - (void)prepareFileAudioUnit;
@@ -74,6 +75,5 @@ class CAComponent;
 - (void)buildAudioUnitList;
 - (void)addLinkToFiles:(NSArray *)inFiles;
 - (void)loadAudioFile:(NSString *)inAudioFileName;
-- (void)handleDoubleClick: (id)sender;
 
 @end

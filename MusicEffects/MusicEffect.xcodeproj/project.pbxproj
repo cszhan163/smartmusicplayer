@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91E8402410CB3D5F007A85E7 /* pause.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402110CB3D5F007A85E7 /* pause.tiff */; };
+		91E8402510CB3D5F007A85E7 /* play.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402210CB3D5F007A85E7 /* play.tiff */; };
+		91E8402610CB3D5F007A85E7 /* stop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402310CB3D5F007A85E7 /* stop.tiff */; };
 		F408D50207709DF60065702D /* AudioFileListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7950D27904E864C900A4A77E /* AudioFileListView.h */; };
 		F408D50507709DF60065702D /* CAGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = 7972B49D04E960110048F1DA /* CAGuard.h */; };
 		F408D50607709DF60065702D /* CADebugMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7972B4A104E9604E0048F1DA /* CADebugMacros.h */; };
@@ -62,6 +65,9 @@
 		7972B4A104E9604E0048F1DA /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
 		7972B4A204E9604E0048F1DA /* CAException.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAException.h; sourceTree = "<group>"; };
 		7972B4A404E9604E0048F1DA /* CAHostTimeBase.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAHostTimeBase.h; sourceTree = "<group>"; };
+		91E8402110CB3D5F007A85E7 /* pause.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = pause.tiff; sourceTree = "<group>"; };
+		91E8402210CB3D5F007A85E7 /* play.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = play.tiff; sourceTree = "<group>"; };
+		91E8402310CB3D5F007A85E7 /* stop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = stop.tiff; sourceTree = "<group>"; };
 		A343966205ADD6D600BEB440 /* CAGuard.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CAGuard.cpp; sourceTree = "<group>"; };
 		A343966305ADD6D600BEB440 /* CAMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CAMutex.cpp; sourceTree = "<group>"; };
 		A343966405ADD6D600BEB440 /* CAMutex.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAMutex.h; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				91E8402110CB3D5F007A85E7 /* pause.tiff */,
+				91E8402210CB3D5F007A85E7 /* play.tiff */,
+				91E8402310CB3D5F007A85E7 /* stop.tiff */,
 				7950D26C04E85CE100A4A77E /* InfoPlist.strings */,
 				7950D26E04E85CE100A4A77E /* MainMenu.nib */,
 			);
@@ -260,6 +269,9 @@
 			files = (
 				F408D50F07709DF60065702D /* InfoPlist.strings in Resources */,
 				F408D51007709DF60065702D /* MainMenu.nib in Resources */,
+				91E8402410CB3D5F007A85E7 /* pause.tiff in Resources */,
+				91E8402510CB3D5F007A85E7 /* play.tiff in Resources */,
+				91E8402610CB3D5F007A85E7 /* stop.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
