@@ -1,7 +1,0 @@
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.mm: In function 'objc_object* -[AudioUnitWrapper init:](AudioUnitWrapper*, objc_selector*, CAComponent)':
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.mm:16: error: 'comp' has incomplete type
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.h:13: error: forward declaration of 'struct CAComponent'
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.mm:16: warning: conflicting types for '-(id)init:(CAComponent)comp'
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.h:24: warning: previous declaration of '-(id)init:(CAComponent *)comp'
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.h: At global scope:
-/Users/doug/Documents/School/520/project/MusicEffects/AudioUnitWrapper.h:13: error: type 'struct CAComponent' does not have a known size
