@@ -10,7 +10,6 @@
 		91E8402410CB3D5F007A85E7 /* pause.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402110CB3D5F007A85E7 /* pause.tiff */; };
 		91E8402510CB3D5F007A85E7 /* play.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402210CB3D5F007A85E7 /* play.tiff */; };
 		91E8402610CB3D5F007A85E7 /* stop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 91E8402310CB3D5F007A85E7 /* stop.tiff */; };
-		F408D50207709DF60065702D /* AudioFileListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7950D27904E864C900A4A77E /* AudioFileListView.h */; };
 		F408D50507709DF60065702D /* CAGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = 7972B49D04E960110048F1DA /* CAGuard.h */; };
 		F408D50607709DF60065702D /* CADebugMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7972B4A104E9604E0048F1DA /* CADebugMacros.h */; };
 		F408D50707709DF60065702D /* CAException.h in Headers */ = {isa = PBXBuildFile; fileRef = 7972B4A204E9604E0048F1DA /* CAException.h */; };
@@ -23,7 +22,6 @@
 		F408D50F07709DF60065702D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7950D26C04E85CE100A4A77E /* InfoPlist.strings */; };
 		F408D51007709DF60065702D /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7950D26E04E85CE100A4A77E /* MainMenu.nib */; };
 		F408D51207709DF60065702D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7950D26604E85CBE00A4A77E /* main.m */; };
-		F408D51307709DF60065702D /* AudioFileListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7950D27A04E864C900A4A77E /* AudioFileListView.m */; };
 		F408D51807709DF60065702D /* CAGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A343966205ADD6D600BEB440 /* CAGuard.cpp */; };
 		F408D51907709DF60065702D /* CAMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A343966305ADD6D600BEB440 /* CAMutex.cpp */; };
 		F408D51A07709DF60065702D /* CAHostTimeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A343966805ADD70000BEB440 /* CAHostTimeBase.cpp */; };
@@ -59,8 +57,6 @@
 		7950D26604E85CBE00A4A77E /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
 		7950D26D04E85CE100A4A77E /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7950D26F04E85CE100A4A77E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = Resources/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		7950D27904E864C900A4A77E /* AudioFileListView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AudioFileListView.h; path = Source/AudioFileListView.h; sourceTree = "<group>"; };
-		7950D27A04E864C900A4A77E /* AudioFileListView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AudioFileListView.m; path = Source/AudioFileListView.m; sourceTree = "<group>"; };
 		7972B49D04E960110048F1DA /* CAGuard.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAGuard.h; sourceTree = "<group>"; };
 		7972B4A104E9604E0048F1DA /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
 		7972B4A204E9604E0048F1DA /* CAException.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CAException.h; sourceTree = "<group>"; };
@@ -133,8 +129,6 @@
 			children = (
 				3E9DB8DF076F4C07006BE739 /* WindowController.h */,
 				3E9DB8E0076F4C07006BE739 /* WindowController.mm */,
-				7950D27904E864C900A4A77E /* AudioFileListView.h */,
-				7950D27A04E864C900A4A77E /* AudioFileListView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -208,7 +202,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F408D50207709DF60065702D /* AudioFileListView.h in Headers */,
 				F408D50507709DF60065702D /* CAGuard.h in Headers */,
 				F408D50607709DF60065702D /* CADebugMacros.h in Headers */,
 				F408D50707709DF60065702D /* CAException.h in Headers */,
@@ -293,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F408D51207709DF60065702D /* main.m in Sources */,
-				F408D51307709DF60065702D /* AudioFileListView.m in Sources */,
 				F408D51807709DF60065702D /* CAGuard.cpp in Sources */,
 				F408D51907709DF60065702D /* CAMutex.cpp in Sources */,
 				F408D51A07709DF60065702D /* CAHostTimeBase.cpp in Sources */,
