@@ -1,0 +1,1719 @@
+TAUFoo
+v7
+r0
+t281862854.022814
+cCheck dependencies
+cProcessInfoPlistFile /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Info.plist Info.plist
+cCopyStringsFile /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo-C8D75827.o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o /Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o /Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o /Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o /Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o /Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cLd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo normal i386
+cRez /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc AUFoo.r
+cResMergerCollector /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc
+cResMergerProduct /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc
+cTouch /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component
+cPBXCp /Users/noel/Library/Audio/Plug-Ins/Components/AUFoo.component build/Debug/AUFoo.component
+
+N/AUFoo.component
+t2
+s0
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp
+c0000000046F7432A000000000000F4F1
+t1190609706
+s62705
+i"AUBase.h"
+i"AUDispatch.h"
+i"AUInputElement.h"
+i"AUOutputElement.h"
+i<algorithm>
+i"CAAudioChannelLayout.h"
+i"CAHostTimeBase.h"
+i"CAVectorUnit.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.h
+c0000000046F7432A0000000000007A14
+t1190609706
+s31252
+i<TargetConditionals.h>
+i<pthread.h>
+i<windows.h>
+i<vector>
+i"ComponentBase.h"
+i"AUScopeElement.h"
+i"AUInputElement.h"
+i"AUOutputElement.h"
+i"AUBuffer.h"
+i"CAMath.h"
+i"CAThreadSafeList.h"
+i"CAVectorUnit.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp
+c0000000046F7432A0000000000003859
+t1190609706
+s14425
+i"AUBase.h"
+i"AUDebugDispatcher.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.h
+c0000000046F7432A0000000000000E94
+t1190609706
+s3732
+i<TargetConditionals.h>
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp
+c0000000046F7432A0000000000001928
+t1190609706
+s6440
+i"AUScopeElement.h"
+i"AUInputElement.h"
+i"AUBase.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.h
+c0000000046F7432A0000000000001321
+t1190609706
+s4897
+i"AUScopeElement.h"
+i"AUBuffer.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp
+c0000000046F7432A0000000000000BB1
+t1190609706
+s2993
+i"AUOutputElement.h"
+i"AUBase.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.h
+c0000000046F7432A0000000000000C3A
+t1190609706
+s3130
+i"AUScopeElement.h"
+i"AUBuffer.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp
+c0000000046F7432A0000000000003C58
+t1190609706
+s15448
+i"AUScopeElement.h"
+i"AUBase.h"
+i<CoreServices/CoreServices.h>
+i<Endian.h>
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.h
+c0000000046F7432A00000000000044A8
+t1190609706
+s17576
+i<map>
+i<vector>
+i<AudioUnit/AudioUnit.h>
+i<AudioUnit.h>
+i"ComponentBase.h"
+i"AUBuffer.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp
+c0000000046F7432A0000000000000E8C
+t1190609706
+s3724
+i"ComponentBase.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.h
+c0000000046F7432A0000000000001D08
+t1190609706
+s7432
+i<CoreServices/CoreServices.h>
+i<ConditionalMacros.h>
+i<CoreServices.h>
+i<new>
+i"CADebugMacros.h"
+i"CAGuard.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp
+c0000000046F7432A0000000000004266
+t1190609706
+s16998
+i"AUEffectBase.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.h
+c0000000046F7432A0000000000002653
+t1190609706
+s9811
+i"AUBase.h"
+i"AUSilentTimeout.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp
+c0000000046F7432A0000000000001CD7
+t1190609706
+s7383
+i"AUBuffer.h"
+i<stdlib.h>
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.h
+c0000000046F7432A00000000000022B3
+t1190609706
+s8883
+i<TargetConditionals.h>
+i<CoreServices/CoreServices.h>
+i<AudioUnit/AudioUnit.h>
+i<CoreServices.h>
+i<AudioUnit.h>
+i<string.h>
+i"CAStreamBasicDescription.h"
+i"CADebugMacros.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp
+c0000000046F7432A0000000000004981
+t1190609706
+s18817
+i"AUDebugDispatcher.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.h
+c0000000046F7432A0000000000001DAA
+t1190609706
+s7594
+i"CAHostTimeBase.h"
+i"CAMutex.h"
+i"AUBase.h"
+
+N/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUSilentTimeout.h
+c0000000046F7432A0000000000000CC9
+t1190609706
+s3273
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp
+c0000000046F7432B000000000000327D
+t1190609707
+s12925
+i"CAAUParameter.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.h
+c0000000046F7432B0000000000001C85
+t1190609707
+s7301
+i<AudioToolbox/AudioUnitUtilities.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAtomicStack.h
+c0000000046F7432B0000000000001651
+t1190609707
+s5713
+i<libkern/OSAtomic.h>
+i<DriverSynchronization.h>
+i<CoreServices/CoreServices.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp
+c0000000046F7432B0000000000001929
+t1190609707
+s6441
+i"CAAudioChannelLayout.h"
+i<stdlib.h>
+i<string.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.h
+c0000000046F7432B0000000000001C45
+t1190609707
+s7237
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreFoundation/CoreFoundation.h>
+i<CoreAudioTypes.h>
+i<CoreFoundation.h>
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i"CAReferenceCounted.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAAutoDisposer.h
+c0000000046F7432B0000000000003338
+t1190609707
+s13112
+i<stdlib.h>
+i<new>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CADebugMacros.h
+c0000000046F7432B0000000000004CBF
+t1190609707
+s19647
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+i"CADebugPrintf.h"
+i<pthread.h>
+i"CAHostTimeBase.h"
+i"CAHostTimeBase.h"
+i"CADebugger.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CADebugPrintf.h
+c0000000046F7432B00000000000011CB
+t1190609707
+s4555
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+i<sys/syslog.h>
+i<stdio.h>
+i<stdio.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CADebugger.h
+c0000000046F7432B0000000000000B4B
+t1190609707
+s2891
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAException.h
+c0000000046F7432B0000000000000E8C
+t1190609707
+s3724
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAGuard.h
+c0000000046F7432B0000000000001378
+t1190609707
+s4984
+i"CAMutex.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAHostTimeBase.h
+c0000000046F7432B0000000000001C97
+t1190609707
+s7319
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+i<mach/mach_time.h>
+i<windows.h>
+i"CADebugMacros.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CALogMacros.h
+c0000000046F7432B0000000000001A52
+t1190609707
+s6738
+i"CADebugMacros.h"
+i"CADebugPrintf.h"
+i<stdio.h>
+i<string.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAMath.h
+c0000000046F7432B0000000000000D18
+t1190609707
+s3352
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp
+c0000000046F7432B00000000000031B8
+t1190609707
+s12728
+i"CAMutex.h"
+i<errno.h>
+i"CADebugMacros.h"
+i"CAException.h"
+i"CAHostTimeBase.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAMutex.h
+c0000000046F7432B0000000000001364
+t1190609707
+s4964
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+i<pthread.h>
+i<windows.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAReferenceCounted.h
+c0000000046F7432B0000000000000E5C
+t1190609707
+s3676
+i<libkern/OSAtomic.h>
+i<CoreServices.h>
+i"CAWindows.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp
+c0000000046F7432B000000000000474A
+t1190609707
+s18250
+i"CAStreamBasicDescription.h"
+i"CAMath.h"
+i<CoreFoundation/CFByteOrder.h>
+i<CFByteOrder.h>
+i<stddef.h>
+i"CALogMacros.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.h
+c0000000046F7432B00000000000026FB
+t1190609707
+s9979
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreFoundation/CoreFoundation.h>
+i"CoreAudioTypes.h"
+i"CoreFoundation.h"
+i"CADebugMacros.h"
+i<string.h>
+i<stdio.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAThreadSafeList.h
+c0000000046F7432B0000000000001DBC
+t1190609707
+s7612
+i"CAAtomicStack.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp
+c0000000046F7432B0000000000001003
+t1190609707
+s4099
+i"CAVectorUnit.h"
+i<sys/sysctl.h>
+i"ippdefs.h"
+i"ippcore.h"
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.h
+c0000000046F7432B0000000000000E15
+t1190609707
+s3605
+i<TargetConditionals.h>
+i"CAVectorUnitTypes.h"
+i<CoreServices/CoreServices.h>
+i<MacTypes.h>
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAVectorUnitTypes.h
+c0000000046F7432B0000000000000AF4
+t1190609707
+s2804
+
+N/Developer/Examples/CoreAudio/PublicUtility/CAXException.h
+c0000000046F7432B00000000000019D6
+t1190609707
+s6614
+i<CoreFoundation/CoreFoundation.h>
+i<ConditionalMacros.h>
+i<CoreFoundation.h>
+i"CADebugMacros.h"
+i<ctype.h>
+i<stdio.h>
+i<string.h>
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp
+c000000004A12495000000000000104EE
+t1242712400
+s66798
+i"AUBase.h"
+i"AUDispatch.h"
+i"AUInputElement.h"
+i"AUOutputElement.h"
+i<algorithm>
+i"CAAudioChannelLayout.h"
+i"CAHostTimeBase.h"
+i"CAVectorUnit.h"
+i"CAXException.h"
+i"AUBaseHelper.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.h
+c000000004A1249500000000000008203
+t1242712400
+s33283
+i<TargetConditionals.h>
+i<pthread.h>
+i<windows.h>
+i<vector>
+i"ComponentBase.h"
+i"AUScopeElement.h"
+i"AUInputElement.h"
+i"AUOutputElement.h"
+i"AUBuffer.h"
+i"CAMath.h"
+i"CAThreadSafeList.h"
+i"CAVectorUnit.h"
+i"CATrace.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp
+c000000004A12495000000000000037E8
+t1242712400
+s14312
+i"AUBase.h"
+i"CAXException.h"
+i"AUDebugDispatcher.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.h
+c000000004A1249500000000000000D7E
+t1242712400
+s3454
+i<TargetConditionals.h>
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp
+c000000004A12495000000000000014D3
+t1242712400
+s5331
+i"AUBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.h
+c000000004A12495000000000000011E5
+t1242712400
+s4581
+i"AUScopeElement.h"
+i"AUBuffer.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp
+c000000004A1249500000000000000B01
+t1242712400
+s2817
+i"AUOutputElement.h"
+i"AUBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.h
+c000000004A1249500000000000000B84
+t1242712400
+s2948
+i"AUScopeElement.h"
+i"AUBuffer.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp
+c000000004A12495000000000000042C4
+t1242712400
+s17092
+i"AUScopeElement.h"
+i"AUBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.h
+c000000004A12495000000000000049D5
+t1242712400
+s18901
+i<map>
+i<vector>
+i<AudioUnit/AudioUnit.h>
+i<AudioUnit.h>
+i"ComponentBase.h"
+i"AUBuffer.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp
+c000000004A1249500000000000001985
+t1242712400
+s6533
+i"ComponentBase.h"
+i"CAXException.h"
+i<dlfcn.h>
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.h
+c000000004A1249500000000000001FB7
+t1242712400
+s8119
+i<new>
+i"CADebugMacros.h"
+i<CoreAudio/CoreAudioTypes.h>
+i<AudioUnit/AudioUnit.h>
+i<CoreServices/../Frameworks/CarbonCore.framework/Headers/Components.h>
+i<pthread.h>
+i"CoreAudioTypes.h"
+i"Components.h"
+i"AudioUnit.h"
+i"CAGuard.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp
+c000000004A12495000000000000041B8
+t1242712400
+s16824
+i"AUEffectBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.h
+c000000004A1249500000000000002520
+t1242712400
+s9504
+i"AUBase.h"
+i"AUSilentTimeout.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBaseHelper.h
+c000000004A1249500000000000000D1B
+t1242712400
+s3355
+i<CoreFoundation/CoreFoundation.h>
+i<AudioUnit/AUComponent.h>
+i<CoreFoundation.h>
+i<AUComponent.h>
+i"AUBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp
+c000000004A1249500000000000001C88
+t1242712400
+s7304
+i"AUBuffer.h"
+i<stdlib.h>
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.h
+c000000004A12495000000000000021E4
+t1242712400
+s8676
+i<TargetConditionals.h>
+i<AudioUnit/AudioUnit.h>
+i<AudioUnit.h>
+i<string.h>
+i"CAStreamBasicDescription.h"
+i"CAAutoDisposer.h"
+i"CADebugMacros.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp
+c000000004A1249500000000000003FB0
+t1242712400
+s16304
+i"AUDebugDispatcher.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.h
+c000000004A1249500000000000001407
+t1242712400
+s5127
+i"CAHostTimeBase.h"
+i"CAMutex.h"
+i"AUBase.h"
+
+N/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUSilentTimeout.h
+c000000004A1249500000000000000C53
+t1242712400
+s3155
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp
+c000000004A12495000000000000031DF
+t1242712400
+s12767
+i"CAAUParameter.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.h
+c000000004A1249500000000000001BD1
+t1242712400
+s7121
+i<AudioToolbox/AudioUnitUtilities.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAtomic.h
+c000000004A12495000000000000027B0
+t1242712400
+s10160
+i<windows.h>
+i<intrin.h>
+i<CoreFoundation/CFBase.h>
+i<libkern/OSAtomic.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAtomicStack.h
+c000000004A1249500000000000001A7C
+t1242712400
+s6780
+i<libkern/OSAtomic.h>
+i<CAAtomic.h>
+i<CoreServices/CoreServices.h>
+i<libkern/OSAtomic.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp
+c000000004A124950000000000000188C
+t1242712400
+s6284
+i"CAAudioChannelLayout.h"
+i"CAAutoDisposer.h"
+i<stdlib.h>
+i<string.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.h
+c000000004A1249500000000000001E94
+t1242712400
+s7828
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreFoundation/CoreFoundation.h>
+i<CoreAudioTypes.h>
+i<CoreFoundation.h>
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i"CADebugMacros.h"
+i"CAAutoDisposer.h"
+i"CAReferenceCounted.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAAutoDisposer.h
+c000000004A1249500000000000002F87
+t1242712400
+s12167
+i<stdlib.h>
+i<new>
+i<string.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CADebugMacros.h
+c000000004A1249500000000000004FAE
+t1242712400
+s20398
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+i"CADebugPrintf.h"
+i<pthread.h>
+i"CAHostTimeBase.h"
+i"CAHostTimeBase.h"
+i"CADebugger.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CADebugPrintf.h
+c000000004A124950000000000000111C
+t1242712400
+s4380
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+i<sys/syslog.h>
+i<stdio.h>
+i<stdio.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CADebugger.h
+c000000004A1249500000000000000A9C
+t1242712400
+s2716
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAException.h
+c000000004A1249500000000000000DDC
+t1242712400
+s3548
+i<CoreAudio/CoreAudioTypes.h>
+i"CoreAudioTypes.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAGuard.h
+c000000004A12495000000000000012A2
+t1242712400
+s4770
+i"CAMutex.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAHostTimeBase.h
+c000000004A1249500000000000001C6C
+t1242712400
+s7276
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+i<mach/mach_time.h>
+i<windows.h>
+i"CADebugMacros.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CALogMacros.h
+c000000004A12495000000000000019A2
+t1242712400
+s6562
+i"CADebugMacros.h"
+i"CADebugPrintf.h"
+i<stdio.h>
+i<string.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAMath.h
+c000000004A1249500000000000000C6B
+t1242712400
+s3179
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp
+c000000004A12495000000000000030DE
+t1242712400
+s12510
+i"CAMutex.h"
+i<errno.h>
+i"CADebugMacros.h"
+i"CAException.h"
+i"CAHostTimeBase.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAMutex.h
+c000000004A124950000000000000128C
+t1242712400
+s4748
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreAudioTypes.h>
+i<pthread.h>
+i<windows.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAReferenceCounted.h
+c000000004A1249500000000000000C97
+t1242712400
+s3223
+i"CAAtomic.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp
+c000000004A1249500000000000004E32
+t1242712400
+s20018
+i"CAStreamBasicDescription.h"
+i"CAMath.h"
+i<CoreFoundation/CFByteOrder.h>
+i<CFByteOrder.h>
+i"CALogMacros.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.h
+c000000004A1249500000000000002E6C
+t1242712400
+s11884
+i<CoreAudio/CoreAudioTypes.h>
+i<CoreFoundation/CoreFoundation.h>
+i"CoreAudioTypes.h"
+i"CoreFoundation.h"
+i"CADebugMacros.h"
+i<string.h>
+i<stdio.h>
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAThreadSafeList.h
+c000000004A1249500000000000001D08
+t1242712400
+s7432
+i"CAAtomicStack.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp
+c000000004A1249500000000000001650
+t1242712400
+s5712
+i"CAVectorUnit.h"
+i<sys/sysctl.h>
+i"ippdefs.h"
+i"ippcore.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.h
+c000000004A1249500000000000000D83
+t1242712400
+s3459
+i<TargetConditionals.h>
+i"CAVectorUnitTypes.h"
+i<stdlib.h>
+i<stdio.h>
+i<CoreFoundation/CFBase.h>
+i"CFBase.h"
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAVectorUnitTypes.h
+c000000004A1249500000000000000A3C
+t1242712400
+s2620
+
+N/Developer/Extras/CoreAudio/PublicUtility/CAXException.h
+c000000004A1249500000000000002965
+t1242712400
+s10597
+i<CoreFoundation/CoreFoundation.h>
+i<ConditionalMacros.h>
+i<CoreFoundation.h>
+i"CADebugMacros.h"
+i<ctype.h>
+i<string.h>
+
+N/Developer/SDKs/MacOSX10.5.sdk
+c000000004AB265FE00000000000000EE
+t1253205502
+s238
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnitUtilities.h
+c000000004864A73B0000000000004DF8
+t1214555963
+s19960
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AUComponent.h
+c000000004864A72E0000000000003F7C
+t1214555950
+s16252
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioUnit.h
+c000000004864A72E00000000000003CC
+t1214555950
+s972
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioUnit.r
+c000000004864A72D000000000000026E
+t1214555949
+s622
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/CoreAudioTypes.h
+c0000000048649BCC000000000000E5E6
+t1214553036
+s58854
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h
+c0000000048649968000000000000192A
+t1214552424
+s6442
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h
+c00000000486499690000000000000942
+t1214552425
+s2370
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h
+c0000000047BAD4120000000000000400
+t1203426322
+s1024
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/Headers/Components.h
+c0000000048649BE6000000000000D5E1
+t1214553062
+s54753
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/TargetConditionals.h
+c000000004817F9680000000000002778
+t1209530728
+s10104
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/ctype.h
+c0000000047BA99310000000000002C3A
+t1203411249
+s11322
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/dlfcn.h
+c00000000487581E60000000000000AC7
+t1215660518
+s2759
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/errno.h
+c0000000047BA993000000000000003EB
+t1203411248
+s1003
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/libkern/OSAtomic.h
+c0000000047BA993000000000000024B9
+t1203411248
+s9401
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/mach/mach_time.h
+c0000000047E8839E0000000000000746
+t1206420382
+s1862
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/pthread.h
+c0000000047BA9932000000000000380F
+t1203411250
+s14351
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/stdio.h
+c0000000047BA99310000000000003D1D
+t1203411249
+s15645
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/stdlib.h
+c0000000047BA99310000000000002A79
+t1203411249
+s10873
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/string.h
+c0000000047BA99320000000000001731
+t1203411250
+s5937
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/sys/sysctl.h
+c0000000047E883D1000000000000795B
+t1206420433
+s31067
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/sys/syslog.h
+c0000000047E883D100000000000021EC
+t1206420433
+s8684
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stddef.h
+c000000004A11EAF10000000000003197
+t1242688241
+s12695
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004A769DAB00000000000000EE
+t1249287595
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/../../Examples/CoreAudio/PublicUtility/CAAUParameter.cpp
+c0000000046F7432B000000000000327D
+t1190609707
+s12925
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnitUtilities.h
+c000000004A67CD0700000000000073A2
+t1248316679
+s29602
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AUComponent.h
+c000000004A67CCF9000000000000E824
+t1248316665
+s59428
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioUnit.h
+c000000004A67CCF9000000000000041D
+t1248316665
+s1053
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioUnit.r
+c000000004A67CCF90000000000000249
+t1248316665
+s585
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/CoreAudioTypes.h
+c000000004A73D820000000000000F342
+t1249105952
+s62274
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h
+c000000004A5D68370000000000003A75
+t1247635511
+s14965
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h
+c000000004A5D68370000000000001983
+t1247635511
+s6531
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h
+c000000004A5D68380000000000000AF4
+t1247635512
+s2804
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h
+c000000004A11F0980000000000000400
+t1242689688
+s1024
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/Headers/Components.h
+c000000004A5EC276000000000000D5E1
+t1247724150
+s54753
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/TargetConditionals.h
+c000000004A11A9B300000000000031E9
+t1242671539
+s12777
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/ctype.h
+c000000004A5C14A60000000000002C18
+t1247548582
+s11288
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/dlfcn.h
+c000000004A73D44F0000000000000B1C
+t1249104975
+s2844
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/errno.h
+c000000004A5C14A600000000000003EB
+t1247548582
+s1003
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/libkern/OSAtomic.h
+c000000004A5C14A60000000000002519
+t1247548582
+s9497
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/mach/mach_time.h
+c000000004A73D6540000000000000746
+t1249105492
+s1862
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/pthread.h
+c000000004A5C14A700000000000038F0
+t1247548583
+s14576
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004A5C14A70000000000004174
+t1247548583
+s16756
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004A5C14A70000000000002DF5
+t1247548583
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/string.h
+c000000004A5C14A70000000000001731
+t1247548583
+s5937
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/sys/sysctl.h
+c000000004A73D6550000000000007974
+t1249105493
+s31092
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/sys/syslog.h
+c000000004A73D65500000000000021EC
+t1249105493
+s8684
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stddef.h
+c000000004A11EB240000000000003197
+t1242688292
+s12695
+
+N/Library/Audio/Plug-Ins/Components/AUFoo.component
+t1260164743
+s102
+
+N/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004A67CD9300000000004C7870
+t1248316819
+s5011568
+
+N/System/Library/Frameworks/AudioUnit.framework/AudioUnit
+c000000004A67CD020000000000012150
+t1248316674
+s74064
+
+N/System/Library/Frameworks/CoreServices.framework/CoreServices
+c000000004A11F09A0000000000021710
+t1242689690
+s136976
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp
+c000000004B1C937F000000000000211D
+t1260163967
+s8477
+i"AUFoo.h"
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.h
+c000000004B1C879800000000000012DD
+t1260160920
+s4829
+i"AUEffectBase.h"
+i"AUFooVersion.h"
+i"AUDebugDispatcher.h"
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.r
+c000000004B1C9B590000000000000C83
+t1260165977
+s3203
+i<AudioUnit/AudioUnit.r>
+i"AUFooVersion.h"
+i"AUResources.r"
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFooVersion.h
+c000000004B1C94E00000000000000B7D
+t1260164320
+s2941
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/English.lproj/InfoPlist.strings
+c000000004B1C95280000000000000134
+t1260164392
+s308
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o
+t1260170049
+s410668
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o
+t1260170052
+s22944
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o
+t1260170052
+s1244
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o
+t1260170049
+s111288
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o
+t1260170052
+s196064
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo-C8D75827.o
+t1260170048
+s148532
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo.LinkFileList
+c000000004B1CAB3E00000000000007DE
+t1260170046
+s2014
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o
+t1260170050
+s139284
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o
+t1260170050
+s130940
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o
+t1260170051
+s278280
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o
+t1260170052
+s32796
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o
+t1260170052
+s19856
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o
+t1260170052
+s12748
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o
+t1260170052
+s34092
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o
+t1260170052
+s3920
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o
+t1260170050
+s11180
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc
+t1260170053
+s522
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc
+t1260170053
+s522
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component
+t1260170053
+s102
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Info.plist
+t1260170046
+s707
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo
+t1260170053
+s284348
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/PkgInfo
+t1260170046
+s8
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc
+t1260170053
+s522
+
+N/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/English.lproj/InfoPlist.strings
+t1260170047
+s308
+
+N/Users/noel/Library/Audio/Plug-Ins/Components/AUFoo.component
+t1260170053
+s102
+
+N/Users/noel/Library/Audio/Plug-Ins/Components/AUFoo.i
+t2
+s0
+
+N/Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components/AUFoo.component
+t2
+s0
+
+N/Volumes/home/Library/Audio/Plug-Ins/Components/AUFoo.component
+t2
+s0
+
+NAUFoo.exp
+c000000004B1C8798000000000000000B
+t1260160920
+s11
+
+NInfo.plist
+c000000004B1C9AFF00000000000002F3
+t1260165887
+s755
+
+C<C0024:'PBXCp AUFoo.component':P15:W0>
+r0
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies281862846#281862846#0(0"0(0#1#0"2497271920#0"0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859775.864181
+e281859778.034049
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp: In member function 'char* AUBase::GetLoggingString() const':
+o/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp:1989: warning: deprecated conversion from string constant to 'char*'
+lSLF07#2@75"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp281859775#281859778#0(267"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp: In member function 'char* AUBase::GetLoggingString() const':/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp:1989: warning: deprecated conversion from string constant to 'char*'1(22@53"Deprecated conversion from string constant to 'char*'281859777#130#137#0(6@67"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp212302506#1989#0#1989#0#49"deprecated conversion from string constant to '*'0(0#0#67"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp2497271920#1107"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862847.255763
+e281862849.404535
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp281862847#281862849#0(0"0(0#0#65"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp2497271920#1105"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBase.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859780.787627
+e281859781.745170
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@78"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp281859780#281859781#0(0"0(0#0#70"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp2497271920#1112"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862851.596247
+e281862852.013282
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp281862851#281862852#0(0"0(0#0#68"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp2497271920#1110"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUBuffer.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859781.745412
+e281859781.794789
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@87"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp281859781#281859781#0(0"0(0#0#79"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp2497271920#1130"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.013745
+e281862852.112010
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp281862852#281862852#0(0"0(0#0#77"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp2497271920#1128"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDebugDispatcher.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859777.249850
+e281859778.469234
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp281859777#281859778#0(0"0(0#0#71"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp2497271920#1115"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862848.334419
+e281862849.307062
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp281862848#281862849#0(0"0(0#0#69"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp2497271920#1113"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUDispatch.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859780.454630
+e281859782.029030
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp281859780#281859782#0(0"0(0#0#77"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp2497271920#1123"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862851.018432
+e281862852.144618
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp281862851#281862852#0(0"0(0#0#75"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp2497271920#1121"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUEffectBase.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo-C8D75827.o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862847.254029
+e281862848.334199
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo-C8D75827.o
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp: In member function 'virtual void AUFoo::AUFooKernel::Process(const Float32*, Float32*, UInt32, UInt32, bool&)':
+o/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp:165: warning: unused variable 'gain'
+lSLF07#2@79"Compile /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp281862847#281862848#0(294"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp: In member function 'virtual void AUFoo::AUFooKernel::Process(const Float32*, Float32*, UInt32, UInt32, bool&)':/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp:165: warning: unused variable 'gain'1(22@22"Unused variable 'gain'281862848#185#109#0(6@71"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp281856767#165#0#165#0#19"unused variable '*'0(0#0#71"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp2497271920#1119"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo-C8D75827.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859778.034261
+e281859779.197854
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp281859778#281859779#0(0"0(0#0#75"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp2497271920#1123"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862849.307198
+e281862850.298029
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp281862849#281862850#0(0"0(0#0#73"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp2497271920#1121"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUInputElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859778.469396
+e281859779.675685
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@84"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp281859778#281859779#0(0"0(0#0#76"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp2497271920#1125"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862849.404677
+e281862850.394199
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@82"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp281862849#281862850#0(0"0(0#0#74"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp2497271920#1123"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUOutputElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859779.197998
+e281859780.787481
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp281859779#281859780#0(0"0(0#0#75"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp2497271920#1123"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862850.298251
+e281862851.596101
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp281862850#281862851#0(0"0(0#0#73"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp2497271920#1121"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUScopeElement.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o /Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281860473.914736
+e281860474.574885
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o
+x/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp: In member function 'void CAAUParameter::Init(ComponentInstanceRecord*, AudioUnitParameterID, AudioUnitScope, AudioUnitElement)':
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:116: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:120: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:123: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:126: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:130: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:133: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:137: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:140: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:144: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:149: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:153: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:156: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:159: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:162: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:165: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:168: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:171: warning: deprecated conversion from string constant to 'char*'
+o/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:174: warning: deprecated conversion from string constant to 'char*'
+lSLF07#2@69"Compile /Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp281860473#281860474#0(2532"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp: In member function 'void CAAUParameter::Init(ComponentInstanceRecord*, AudioUnitParameterID, AudioUnitScope, AudioUnitElement)':/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:116: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:120: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:123: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:126: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:130: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:133: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:137: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:140: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:144: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:149: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:153: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:156: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:159: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:162: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:165: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:168: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:171: warning: deprecated conversion from string constant to 'char*'/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp:174: warning: deprecated conversion from string constant to 'char*'18(22@53"Deprecated conversion from string constant to 'char*'281860474#192#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#116#0#116#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#322#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#120#0#120#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#452#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#123#0#123#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#582#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#126#0#126#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#712#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#130#0#130#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#842#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#133#0#133#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#972#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#137#0#137#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1102#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#140#0#140#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1232#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#144#0#144#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1362#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#149#0#149#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1492#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#153#0#153#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1622#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#156#0#156#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1752#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#159#0#159#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#1882#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#162#0#162#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#2012#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#165#0#165#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#2142#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#168#0#168#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#2272#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#171#0#171#0#49"deprecated conversion from string constant to '*'0(22@53"Deprecated conversion from string constant to 'char*'281860474#2402#130#0(6@61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp212302507#174#0#174#0#49"deprecated conversion from string constant to '*'0(0#0#61"/Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp2497271920#1108"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/PublicUtility/CAAUParameter.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o /Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.478812
+e281862853.006388
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o
+x/Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp281862852#281862853#0(0"0(0#0#59"/Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp2497271920#1106"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/PublicUtility/CAAUParameter.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAUParameter.o /Developer/SDKs/MacOSX10.6.sdk/../../Examples/CoreAudio/PublicUtility/CAAUParameter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o /Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281860473.281547
+e281860473.554515
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o
+x/Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp281860473#281860473#0(0"0(0#0#68"/Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp2497271920#1122"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o /Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.112154
+e281862852.478655
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o
+x/Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp281862852#281862852#0(0"0(0#0#66"/Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp2497271920#1120"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAAudioChannelLayout.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o /Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281860473.554655
+e281860473.701196
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o
+x/Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp281860473#281860473#0(0"0(0#0#55"/Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp2497271920#1096"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/PublicUtility/CAMutex.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o /Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.144756
+e281862852.331915
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o
+x/Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@61"Compile /Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp281862852#281862852#0(0"0(0#0#53"/Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp2497271920#1094"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/PublicUtility/CAMutex.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAMutex.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o /Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281860473.701340
+e281860474.064057
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o
+x/Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@80"Compile /Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp281860473#281860474#0(0"0(0#0#72"/Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp2497271920#1130"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o /Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.332053
+e281862852.791937
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o
+x/Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@78"Compile /Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp281862852#281862852#0(0"0(0#0#70"/Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp2497271920#1128"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAStreamBasicDescription.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o /Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281860474.064196
+e281860475.021414
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o
+x/Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp281860474#281860475#0(0"0(0#0#60"/Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp2497271920#1106"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/PublicUtility/CAVectorUnit.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o /Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862852.792074
+e281862852.932182
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o
+x/Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp281862852#281862852#0(0"0(0#0#58"/Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp2497271920#1104"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/CAVectorUnit.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281859779.675949
+e281859780.454487
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o
+x/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@82"Compile /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp281859779#281859780#0(0"0(0#0#74"/Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp2497271920#1121"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o0#
+
+CCompileC build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s281862850.394343
+e281862851.018195
+r1
+xCompileC
+xbuild/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o
+x/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@80"Compile /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp281862850#281862851#0(0"0(0#0#72"/Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp2497271920#1119"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -fvisibility-inlines-hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/AUFoo.hmap -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources/i386 -I/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/DerivedSources -c /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/ComponentBase.o0#
+
+CCopyStringsFile /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s281862846.823742
+e281862847.253861
+r1
+xCopyStringsFile
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings281862846#281862847#0(0"0(0#0#93"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/English.lproj/InfoPlist.strings2497271920#416"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/English.lproj0#
+
+CLd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo normal i386
+s281862853.006551
+e281862853.224975
+r1
+xLd
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo
+xnormal
+xi386
+old: warning: missing line-end at end of file "AUFoo.exp"
+lSLF07#2@115"Link /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo281862853#281862853#0(57"ld: warning: missing line-end at end of file "AUFoo.exp"1(22@43"Missing line-end at end of file "AUFoo.exp"281862853#0#57#0(6@0"281862853#0#0#0#0#0"0(0#0#0"2497271920#750"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/g++-4.2 -arch i386 -bundle -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -F/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -filelist /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/Objects-normal/i386/AUFoo.LinkFileList -exported_symbols_list AUFoo.exp -mmacosx-version-min=10.6 -bundle -framework AudioToolbox -framework AudioUnit -framework CoreServices -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/MacOS/AUFoo0#
+
+CPBXCp "/Volumes/DJ\\ Premier/home/Library/Audio/Plug-Ins/Components/AUFoo.component" build/Debug/AUFoo.component
+s281857793.300613
+e281857793.318185
+r0
+xPBXCp
+x/Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components/AUFoo.component
+xbuild/Debug/AUFoo.component
+opbxcp: error: mkdir(): /Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components/AUFoo.component: No such file or directory
+lSLF07#2@32"Copy build/Debug/AUFoo.component281857793#281857793#0(237"error: couldn't create directory /Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components: Permission deniedpbxcp: error: mkdir(): /Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components/AUFoo.component: No such file or directory1(4@111"error: couldn't create directory /Volumes/DJ\ Premier/home/Library/Audio/Plug-Ins/Components: Permission denied281857793#4294967295#0#0(6@0"281857793#0#0#0#0#0"0(0#0#89"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component2497271920#391"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component "/Volumes/DJ\\ Premier/home/Library/Audio/Plug-Ins/Components"1#
+
+CPBXCp /AUFoo.component build/Debug/AUFoo.component
+r0
+
+CPBXCp /Library/Audio/Plug-Ins/Components/AUFoo.component build/Debug/AUFoo.component
+s281857543.566914
+e281857543.684179
+r1
+xPBXCp
+x/Library/Audio/Plug-Ins/Components/AUFoo.component
+xbuild/Debug/AUFoo.component
+lSLF07#2@32"Copy build/Debug/AUFoo.component281857543#281857543#0(0"0(0#0#89"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component2497271920#363"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component /Library/Audio/Plug-Ins/Components0#
+
+CPBXCp /Users/noel/Library/Audio/Plug-Ins/Components/AUFoo.component build/Debug/AUFoo.component
+s281862853.915765
+e281862854.022750
+r1
+xPBXCp
+x/Users/noel/Library/Audio/Plug-Ins/Components/AUFoo.component
+xbuild/Debug/AUFoo.component
+lSLF07#2@32"Copy build/Debug/AUFoo.component281862853#281862854#0(0"0(0#0#89"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component2497271920#374"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component /Users/noel/Library/Audio/Plug-Ins/Components0#
+
+CPBXCp /Volumes/home/Library/Audio/Plug-Ins/Components/AUFoo.component build/Debug/AUFoo.component
+s281857695.023357
+e281857695.140720
+r0
+xPBXCp
+x/Volumes/home/Library/Audio/Plug-Ins/Components/AUFoo.component
+xbuild/Debug/AUFoo.component
+opbxcp: error: mkdir(): /Volumes/home/Library/Audio/Plug-Ins/Components/AUFoo.component: No such file or directory
+lSLF07#2@32"Copy build/Debug/AUFoo.component281857695#281857695#0(213"error: couldn't create directory /Volumes/home/Library/Audio/Plug-Ins/Components: Permission deniedpbxcp: error: mkdir(): /Volumes/home/Library/Audio/Plug-Ins/Components/AUFoo.component: No such file or directory1(4@99"error: couldn't create directory /Volumes/home/Library/Audio/Plug-Ins/Components: Permission denied281857695#4294967295#0#0(6@0"281857695#0#0#0#0#0"0(0#0#89"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component2497271920#376"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component /Volumes/home/Library/Audio/Plug-Ins/Components1#
+
+CProcessInfoPlistFile /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Info.plist Info.plist
+s281862846.818879
+e281862846.823604
+r1
+xProcessInfoPlistFile
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist281862846#281862846#0(0"0(0#0#72"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/Info.plist2497271920#379"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    builtin-infoPlistUtility Info.plist -genpkginfo /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Info.plist0#
+
+CResMergerCollector /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc
+s281862853.844532
+e281862853.874323
+r1
+xResMergerCollector
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc
+lSLF07#2@154"Merge resources into /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc281862853#281862853#0(0"0(0#0#0"2497271920#398"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Tools/ResMerger -dstIs DF /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc0#
+
+CResMergerProduct /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc
+s281862853.874524
+e281862853.898261
+r1
+xResMergerProduct
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc
+lSLF07#2@140"Merge resources into /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc281862853#281862853#0(0"0(0#0#0"2497271920#367"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Tools/ResMerger /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/AUFoo.rsrc -dstIs DF -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component/Contents/Resources/AUFoo.rsrc0#
+
+CRez /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc AUFoo.r
+s281862853.225170
+e281862853.844299
+r1
+xRez
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc
+xAUFoo.r
+lSLF07#2@11"Rez AUFoo.r281862853#281862853#0(0"0(0#0#69"/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.r2497271920#1228"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /Developer/Tools/Rez -o /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/AUFoo.build/Debug/AUFoo.build/ResourceManagerResources/Objects/AUFoo-2BC77829.rsrc -d SystemSevenOrLater=1 -useDF -script Roman -d ppc_$ppc -d i386_YES -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase -arch i386 -i /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -i /System/Library/Frameworks/CoreServices.framework/Versions/CarbonCore.framework/Versions/A/Headers -i /Developer/Examples/CoreAudio/AudioUnits/AUPublic/AUBase -i /Developer/Extras/CoreAudio/AudioUnits/AUPublic/OtherBases -i /Developer/Extras/CoreAudio/AudioUnits/AUPublic/AUBase -i /Developer/Extras/CoreAudio/AudioUnits/AUPublic/Utility -i /Developer/Extras/CoreAudio/PublicUtility -i /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug -i /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/include -isysroot /Developer/SDKs/MacOSX10.6.sdk /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/AUFoo.r0#
+
+CTouch /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component
+s281862853.898387
+e281862853.915625
+r1
+xTouch
+x/Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component
+lSLF07#2@95"Touch /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component281862853#281862853#0(0"0(0#0#0"2497271920#181"    cd /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo    /usr/bin/touch -c /Users/noel/Documents/Academic/Postgrad/CSE520S/project/AUFoo/build/Debug/AUFoo.component0#
+
