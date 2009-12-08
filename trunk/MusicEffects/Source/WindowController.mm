@@ -18,7 +18,8 @@
 
 @implementation HostingWindowController
 
-
+/** awakeFromNib
+ Initializes everything and gets it ready for running. */
 - (void)awakeFromNib {
 	playing = NO;
 	filePosition = 0;
@@ -43,25 +44,12 @@
 }
 
 
-
--(void)cleanup {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	[scrollView release];
-	
-	delete [] allAudioUnits;
-    
-	if(fileId)
-		verify_noerr(AudioFileClose(fileId));
-    
-    [self destroyGraph];
-}
-
-
 #pragma mark -
 #pragma mark Audio Graph
 
 
+/** createGraph
+ Sets up the static components of the graph and starts it. */
 - (void)createGraph {
 	verify_noerr (NewAUGraph(&graph));
 	
@@ -88,8 +76,9 @@
 }
 
 
+/** destroyGraph
+ Closes the graph and destroys the components. */
 - (void)destroyGraph {
-	// stop graph if necessary
     Boolean isRunning = FALSE;
 	verify_noerr (AUGraphIsRunning(graph, &isRunning));
 	if (isRunning) {
@@ -99,13 +88,14 @@
 		if(fileId)
 			verify_noerr (AudioFileClose(fileId));
 	}
-	
-	// close and destroy
 	verify_noerr (AUGraphClose(graph));
 	verify_noerr (DisposeAUGraph(graph));
 }
 
 
+/** addAudioUnit
+ Adds a new AudioUnit of the selected type to the end of the audio graph and
+ displays it on the GUI. */
 - (IBAction) addAudioUnit :(id)sender {
 	// Determine AudioUnit to add
 	int index = [audioUnitPopup indexOfSelectedItem] - 1;
@@ -147,7 +137,8 @@
 }
 
 
-
+/** deleteAudioUnit
+ Removes the AudioUnit from the audio graph and updates the display. */
 - (IBAction) deleteAudioUnit :(id)sender {
 	if (path.size() == 0)
 		return;
@@ -293,7 +284,8 @@
 }
 
 
-
+/** prepareFileAudioUnit
+ Configures the file playing and begins playing from the frame specified by filePosition. */
 - (void)prepareFileAudioUnit {	
 	// Calculate the duration
 	UInt64 nPackets;
@@ -346,6 +338,8 @@
 }
 
 
+/** loadAudioFile
+ Reads the file into memory and prepares for playback. */
 - (void) loadAudioFile:(NSString *)inAudioFileName {
 	FSRef destFSRef;
 	UInt8 *pathName = (UInt8 *)[inAudioFileName UTF8String];
@@ -365,6 +359,7 @@
 
 #pragma mark -
 #pragma mark Interaction
+
 
 /** buildAudioUnitList
  Finds all of the AudioUnits that are installed on the computer and builds up
@@ -386,8 +381,6 @@
 }
 
 
-
-
 /** selectAudioUnit
  Show the UI for the audio unit that is selected. */
 - (IBAction) selectAudioUnit :(id)sender {
@@ -403,8 +396,9 @@
 	NSOpenPanel * openDialog = [NSOpenPanel openPanel];
 	[openDialog setCanChooseFiles:YES];
 	[openDialog setCanChooseDirectories: NO];
-	[openDialog setAllowsMultipleSelection: NO];
-	
+	[openDialog setAllowsMultipleSelection: NO];	
+	[openDialog setAllowedFileTypes:[NSArray arrayWithObjects:@"mp3",@"aiff",@"wav",@"sd2",@"aifc",@"aac",nil]];
+
 	// Display the dialog.  If the OK button was pressed, process the files.
 	if ( [openDialog runModal] == NSFileHandlingPanelOKButton ) {
 		// TODO ensure only a valid format
@@ -421,16 +415,20 @@
 }
 
 
+/** stopMusic
+ Terminates file playback and resets position to the beginning of the file. */
 - (IBAction) stopMusic: (id)sender {
 	AudioUnitReset(fileUnit, kAudioUnitScope_Global, 0);
  	filePosition = 0;
 	playing = NO;
+	[playButton setState: NSOffState];
 }
 
 
+/** playPause
+ Toggles between playing and pausing the file. When paused, the player remembers
+ the current position so it can be resumed from there later. */
 - (IBAction) playPause:(id)sender {
-    [playButton setState: ([playButton state] == NSOffState) ? NSOnState : NSOffState];
-	
 	playing = !playing;
 	[playButton setState: playing ? NSOnState : NSOffState];
 	if (playing) {
@@ -450,60 +448,31 @@
 
 
 #pragma mark -
-#pragma mark Delegate
+#pragma mark Delegate Methods
 
-
+// Standard Window Delegates
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)inSender {
 	return YES;
 }
 
-
 - (void) windowWillClose:(NSNotification *) aNotification {
-	[self cleanup];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[scrollView release];
+	delete [] allAudioUnits;
+	if(fileId)
+		verify_noerr(AudioFileClose(fileId));
+    [self destroyGraph];
 }
 
 
+// NSBrowser Delegates
 - (NSInteger)browser:(NSBrowser *)sender numberOfRowsInColumn:(NSInteger)column {
 	return path.size();
 }
 
-
 - (void)browser:(NSBrowser *)sender willDisplayCell:(id)cell atRow:(NSInteger)row column:(NSInteger)column {
 	[cell setLeaf: YES];
 	[cell setTitle: activeNames[path[row]]];
-}
-
-
-- (BOOL)browser:(NSBrowser *)browser canDragRowsWithIndexes:(NSIndexSet *)rowIndexes inColumn:(NSInteger)column withEvent:(NSEvent *)event {
-	return YES;
-}
-/*
-- (NSDragOperation)browser:(NSBrowser *)browser validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger *)row
-					column:(NSInteger *)column dropOperation:(NSBrowserDropOperation *)dropOperation {
-	
-	if ([info draggingSource] == self) {
-		NSLog(@"YES");
-		return NSBrowserDropOn;
-	}
-	return NSDragOperationNone;
-}*/
-
-/*- (BOOL)browser:(NSBrowser *)browser acceptDrop:(id <NSDraggingInfo>)info atRow:(NSInteger)row column:(NSInteger)column dropOperation:(NSBrowserDropOperation)dropOperation {
-	
-}*/
-
-- (BOOL)browser:(NSBrowser *)browser writeRowsWithIndexes:(NSIndexSet *)rowIndexes inColumn:(NSInteger)column toPasteboard:(NSPasteboard *)pasteboard {
-	return YES;
-}
-
-
-
-/** NSOpenPanel::shouldShowFilename
- Limits the files that can be opened to valid music formats supported by CoreAudio. */
-- (BOOL)panel:(id)sender shouldShowFilename:(NSString*)filename {
-	
-	
-	return YES;
 }
 
 #pragma mark -
