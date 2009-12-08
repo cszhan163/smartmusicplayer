@@ -1,19 +1,19 @@
+//
+//  AudioUnitWrapper.h
+//  MusicEffect
+//
+//  Created by Doug Hyde on 11/19/09.
+//  Copyright 2009 Washington University in St. Louis. All rights reserved.
+//
+
 
 #import <CoreAudioKit/CoreAudioKit.h>
 #import <AudioUnit/AUCocoaUIView.h>
 
-#include "CAComponent.h"
 #include "CAComponentDescription.h"
 #include "CAStreamBasicDescription.h"
 
 #import "WindowController.h"
-
-
-void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
-    HostingWindowController *SELF = (HostingWindowController *)inRefCon;
-    [SELF performSelectorOnMainThread:@selector(iaPlayStopButtonPressed:) withObject:SELF waitUntilDone:NO];
-}
-
 
 
 @implementation HostingWindowController
@@ -26,27 +26,30 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 			return YES;
 		}
 	}
-	
     return NO;
 }
 
+
 - (void)awakeFromNib {
-	numActiveUnits = 0;
+	playing = NO;
+	filePosition = 0;
+	for (int i=0; i<MAX_UNITS; ++i)
+		freeList.push(i);
     
     // Create AudioUnit view scroll view
-    NSRect frameRect = [[uiAUViewContainer contentView] frame];
-    mScrollView = [[[NSScrollView alloc] initWithFrame:frameRect] autorelease];
-    [mScrollView setDrawsBackground:NO];
-    [mScrollView setHasHorizontalScroller:YES];
-    [mScrollView setHasVerticalScroller:YES];
-    [uiAUViewContainer setContentView:mScrollView];
+    NSRect frameRect = [[viewContainer contentView] frame];
+    scrollView = [[[NSScrollView alloc] initWithFrame:frameRect] autorelease];
+    [scrollView setDrawsBackground:NO];
+    [scrollView setHasHorizontalScroller: NO];
+    [scrollView setHasVerticalScroller:YES];
+    [viewContainer setContentView:scrollView];
     
     // Initialize audio components
 	[self createGraph];
 	[self buildAudioUnitList];
 	[audioUnitBrowser setDoubleAction: @selector(selectAudioUnit:)];
-    
-	// make this the app. delegate
+	
+	// Set Delegate
 	[NSApp setDelegate:self];
 }
 
@@ -54,11 +57,13 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 -(void)cleanup {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+	
+	[scrollView release];
+	
 	delete [] allAudioUnits;
     
-	if(mAFID)
-		verify_noerr(AudioFileClose(mAFID));
+	if(fileId)
+		verify_noerr(AudioFileClose(fileId));
     
     [self destroyGraph];
 }
@@ -67,76 +72,48 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 #pragma mark -
 #pragma mark Audio Graph
 
+
 - (void)createGraph {
-	verify_noerr (NewAUGraph(&mGraph));
+	verify_noerr (NewAUGraph(&graph));
 	
-	CAComponentDescription desc = CAComponentDescription (	kAudioUnitType_Output,
-														  kAudioUnitSubType_DefaultOutput,
-														  kAudioUnitManufacturer_Apple	);
-	verify_noerr (AUGraphAddNode(mGraph, &desc, &mOutputNode));
+	CAComponentDescription desc;
+	desc = CAComponentDescription (kAudioUnitType_Output,
+								   kAudioUnitSubType_DefaultOutput,
+								   kAudioUnitManufacturer_Apple);
+	verify_noerr (AUGraphAddNode(graph, &desc, &outputNode));
 	
-	desc = CAComponentDescription (	kAudioUnitType_Generator,
+	desc = CAComponentDescription (kAudioUnitType_Generator,
 								   kAudioUnitSubType_AudioFilePlayer,
-								   kAudioUnitManufacturer_Apple	);
-	verify_noerr (AUGraphAddNode(mGraph, &desc, &mFileNode));
+								   kAudioUnitManufacturer_Apple);
+	verify_noerr (AUGraphAddNode(graph, &desc, &fileNode));
 	
-	verify_noerr (AUGraphOpen(mGraph));
-    verify_noerr (AUGraphNodeInfo(mGraph, mFileNode, NULL, &mFileUnit));
-    verify_noerr (AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit));
-}
-
-
-- (void)startGraph {
-	AUGraphConnectNodeInput (mGraph, mFileNode, 0, mOutputNode, 0);
+	verify_noerr (AUGraphOpen(graph));
+    verify_noerr (AUGraphNodeInfo(graph, fileNode, NULL, &fileUnit));
+    verify_noerr (AUGraphNodeInfo(graph, outputNode, NULL, &outputUnit));
 	
-	AUGraphUpdate (mGraph, NULL);
-	CAShow(mGraph);
+	verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, outputNode, 0));
+	verify_noerr (AUGraphUpdate (graph, NULL));
 	
-    verify_noerr (AUGraphInitialize(mGraph) == noErr);
-	
-	[self prepareFileAudioUnit];
-	
-    verify_noerr (AUGraphStart(mGraph) == noErr);
-}
-
-
-- (void)updateGraph {
-
-	int i = numActiveUnits - 1;
-	if (numActiveUnits == 0) {
-		verify_noerr (AUGraphConnectNodeInput (mGraph, mFileNode, 0, mOutputNode, 0));
-	} else if (numActiveUnits == 1) {
-		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[0], 0, mOutputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (mGraph, mFileNode, 0, activeNodes[0], 0));
-	} else {
-		verify_noerr (AUGraphDisconnectNodeInput(mGraph, mOutputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[i], 0, mOutputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (mGraph, activeNodes[i-1], 0, activeNodes[i], 0));
-	}
-	AUGraphUpdate (mGraph, NULL);
-	CAShow(mGraph);	// DEBUG output
-}
-
-
-- (void)stopGraph {
-	verify_noerr (AUGraphStop(mGraph));
-	verify_noerr (DisposeAUGraph(mGraph));
-	mGraph = 0;
-	if(mAFID)
-		verify_noerr (AudioFileClose(mAFID));
+    verify_noerr (AUGraphInitialize(graph) == noErr);
+    verify_noerr (AUGraphStart(graph) == noErr);
 }
 
 
 - (void)destroyGraph {
 	// stop graph if necessary
     Boolean isRunning = FALSE;
-	verify_noerr (AUGraphIsRunning(mGraph, &isRunning));
-	if (isRunning)
-		[self stopGraph];
+	verify_noerr (AUGraphIsRunning(graph, &isRunning));
+	if (isRunning) {
+		verify_noerr (AUGraphStop(graph));
+		verify_noerr (DisposeAUGraph(graph));
+		graph = 0;
+		if(fileId)
+			verify_noerr (AudioFileClose(fileId));
+	}
 	
 	// close and destroy
-	verify_noerr (AUGraphClose(mGraph));
-	verify_noerr (DisposeAUGraph(mGraph));
+	verify_noerr (AUGraphClose(graph));
+	verify_noerr (DisposeAUGraph(graph));
 }
 
 
@@ -148,30 +125,26 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
  Displays the Cocoa view for the specified audio unit in the NSBox. */
 - (void) showAudioUnit:(AudioUnit)inAU {
 	// get AU's Cocoa view property
-    UInt32 						dataSize;
-    Boolean 					isWritable;
-    AudioUnitCocoaViewInfo *	cocoaViewInfo = NULL;
-    UInt32						numberOfClasses;
+    UInt32 dataSize;
+    Boolean isWritable;
+    AudioUnitCocoaViewInfo * cocoaViewInfo = NULL;
+    UInt32 numberOfClasses;
     
-    OSStatus result = AudioUnitGetPropertyInfo(	inAU,
+    OSStatus result = AudioUnitGetPropertyInfo(inAU,
 											   kAudioUnitProperty_CocoaUI,
 											   kAudioUnitScope_Global, 
-											   0, &dataSize, &isWritable );
+											   0, &dataSize, &isWritable);
     
     numberOfClasses = (dataSize - sizeof(CFURLRef)) / sizeof(CFStringRef);
-    
-    NSURL 	 *	CocoaViewBundlePath = nil;
-    NSString *	factoryClassName = nil;
+    NSURL *	CocoaViewBundlePath = nil;
+    NSString * factoryClassName = nil;
     
 	// Does view have custom Cocoa UI?
     if ((result == noErr) && (numberOfClasses > 0) ) {
         cocoaViewInfo = (AudioUnitCocoaViewInfo *)malloc(dataSize);
-        if(AudioUnitGetProperty(		inAU,
-								kAudioUnitProperty_CocoaUI,
+        if(AudioUnitGetProperty(inAU, kAudioUnitProperty_CocoaUI,
 								kAudioUnitScope_Global,
-								0,
-								cocoaViewInfo,
-								&dataSize) == noErr) {
+								0, cocoaViewInfo, &dataSize) == noErr) {
             CocoaViewBundlePath	= (NSURL *)cocoaViewInfo->mCocoaAUViewBundleLocation;
 			
 			// we only take the first view in this example.
@@ -184,7 +157,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
         }
     }
 	
-	NSView *AUView = nil;
+	NSView * AUView = nil;
 	BOOL wasAbleToLoadCustomView = NO;
 	
 	// [A] Show custom UI if view has it
@@ -204,7 +177,7 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 			id factoryInstance = [[[factoryClass alloc] init] autorelease];
 			NSAssert (factoryInstance != nil, @"Could not create an instance of the AU view factory");
 			// make a view
-			AUView = [factoryInstance uiViewForAudioUnit:inAU withSize:[[mScrollView contentView] bounds].size];
+			AUView = [factoryInstance uiViewForAudioUnit:inAU withSize:[[scrollView contentView] bounds].size];
 			
 			// cleanup
 			[CocoaViewBundlePath release];
@@ -226,27 +199,23 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 		[AUView autorelease];
     }
 	
-	// Display view
-	NSRect viewFrame = [AUView frame];
-	NSSize frameSize = [NSScrollView	frameSizeForContentSize:viewFrame.size
-									   hasHorizontalScroller:[mScrollView hasHorizontalScroller]
-										 hasVerticalScroller:[mScrollView hasVerticalScroller]
-												  borderType:[mScrollView borderType]];
+	// Resize AudioUnit View
+	NSRect frame = [AUView frame];
+	if ([AUView autoresizingMask] & NSViewWidthSizable)
+		frame.size.width = [[scrollView contentView] frame].size.width;
+	if ([AUView autoresizingMask] & NSViewHeightSizable)
+		frame.size.height = [[scrollView contentView] frame].size.height;
 	
-	NSRect newFrame;
-	newFrame.origin = [mScrollView frame].origin;
-	newFrame.size = frameSize;
+	[AUView setFrame: frame];
+	[scrollView setDocumentView:AUView];
 	
-	NSRect currentFrame = [mScrollView frame];
-	[mScrollView setFrame:newFrame];
-	[mScrollView setDocumentView:AUView];
+	NSRect scrollFrame = [scrollView frame];
+	scrollFrame.size = [NSScrollView frameSizeForContentSize: frame.size
+							hasHorizontalScroller: [scrollView hasHorizontalScroller]
+							hasVerticalScroller: [scrollView hasVerticalScroller]
+							borderType: [scrollView borderType]];
 	
-	NSSize oldContentSize = [[[self window] contentView] frame].size;
-	NSSize newContentSize = oldContentSize;
-	newContentSize.width += (newFrame.size.width - currentFrame.size.width);
-	newContentSize.height += (newFrame.size.height - currentFrame.size.height);
-	
-	[[self window] setContentSize:newContentSize];
+	[scrollView setFrame: scrollFrame];
 }
 
 
@@ -255,11 +224,11 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	// Calculate the duration
 	UInt64 nPackets;
 	UInt32 propsize = sizeof(nPackets);
-	verify_noerr (AudioFileGetProperty(mAFID, kAudioFilePropertyAudioDataPacketCount, &propsize, &nPackets));
+	verify_noerr (AudioFileGetProperty(fileId, kAudioFilePropertyAudioDataPacketCount, &propsize, &nPackets));
 	
 	CAStreamBasicDescription fileFormat;
 	propsize = sizeof(CAStreamBasicDescription);
-	verify_noerr (AudioFileGetProperty(mAFID, kAudioFilePropertyDataFormat, &propsize, &fileFormat));
+	verify_noerr (AudioFileGetProperty(fileId, kAudioFilePropertyDataFormat, &propsize, &fileFormat));
 	
 	ScheduledAudioFileRegion rgn;
 	memset (&rgn.mTimeStamp, 0, sizeof(rgn.mTimeStamp));
@@ -267,20 +236,20 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	rgn.mTimeStamp.mSampleTime = 0;
 	rgn.mCompletionProc = NULL;
 	rgn.mCompletionProcUserData = NULL;
-	rgn.mAudioFile = mAFID;
+	rgn.mAudioFile = fileId;
 	rgn.mLoopCount = 1;
-	rgn.mStartFrame = 0;
+	rgn.mStartFrame = filePosition;
 	rgn.mFramesToPlay = UInt32(nPackets * fileFormat.mFramesPerPacket);
 	
 	// Play entire file
-	verify_noerr (AudioUnitSetProperty(	mFileUnit, 
+	verify_noerr (AudioUnitSetProperty(	fileUnit, 
 									   kAudioUnitProperty_ScheduledFileRegion, 
 									   kAudioUnitScope_Global, 
 									   0, &rgn, sizeof(rgn)));
 	
 	// Set default values
 	UInt32 defaultVal = 0;
-	verify_noerr (AudioUnitSetProperty(	mFileUnit,
+	verify_noerr (AudioUnitSetProperty(	fileUnit,
 									   kAudioUnitProperty_ScheduledFilePrime, 
 									   kAudioUnitScope_Global,
 									   0, &defaultVal, sizeof(defaultVal)));
@@ -290,12 +259,12 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	memset (&startTime, 0, sizeof(startTime));
 	startTime.mFlags = kAudioTimeStampSampleTimeValid;
 	startTime.mSampleTime = -1;
-	verify_noerr (AudioUnitSetProperty(	mFileUnit,
+	verify_noerr (AudioUnitSetProperty(	fileUnit,
 									   kAudioUnitProperty_ScheduleStartTimeStamp, 
 									   kAudioUnitScope_Global, 
 									   0, &startTime, sizeof(startTime)));
 	
-	verify_noerr (AudioUnitSetProperty(	mFileUnit,
+	verify_noerr (AudioUnitSetProperty(	fileUnit,
 									   kAudioUnitProperty_ScheduleStartTimeStamp, 
 									   kAudioUnitScope_Global, 
 									   0, &startTime, sizeof(startTime)));									
@@ -307,18 +276,14 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 #pragma mark -
 #pragma mark Interaction
 
- 
-
-- (void)synchronizePlayStopButton {
-    [playButton setEnabled:(fileName != nil)];
-}
-
-
+/** buildAudioUnitList
+ Finds all of the AudioUnits that are installed on the computer and builds up
+ allAudioUnits[] to store them and populates audioUnitPopup. */
 - (void) buildAudioUnitList {
 	delete [] allAudioUnits;
 
-	int count = CAComponentDescription(kAudioUnitType_Effect).Count();
 	CAComponentDescription desc = CAComponentDescription(kAudioUnitType_Effect);
+	int count = desc.Count();
 	CAComponent *last = NULL;
 	
 	allAudioUnits = new CAComponent[count];
@@ -328,42 +293,62 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 		allAudioUnits[i] = temp;
 		[audioUnitPopup addItemWithTitle:(NSString *)(temp.GetAUName())];
 	}
-	
-    //   [3] enable AudioFileDrawerToggle button for effects
-	[openFileButton setEnabled:YES];
-	
-    [self synchronizePlayStopButton];
-    [self addAudioUnit:self]; // Select first AudioUnit & show
 }
 
 
 - (IBAction) addAudioUnit :(id)sender {
-	
-
+	// Determine AudioUnit to add
 	int index = [audioUnitPopup indexOfSelectedItem] - 1;
 	if (index < 0)
-		index = 0;
-	//[audioUnitPopup select
+		return;
 	AudioComponentDescription desc = allAudioUnits[index].Desc();
 	
-	int i = numActiveUnits;
-	verify_noerr (AUGraphAddNode(mGraph, &desc, &activeNodes[i]));
-	verify_noerr (AUGraphNodeInfo(mGraph, activeNodes[i], NULL, &activeUnits[i]));
-	verify_noerr (AudioUnitInitialize(activeUnits[i]));
+	// Determine where to store
+	int i = freeList.front();
+	freeList.pop();
+	path.insert(path.end(), i);
 	
-	++numActiveUnits;
+	// TODO might need to clean up
+	
+	// Create new AudioUnit
+	verify_noerr (AUGraphAddNode(graph, &desc, &activeNodes[i]));
+	verify_noerr (AUGraphNodeInfo(graph, activeNodes[i], NULL, &activeUnits[i]));
+	verify_noerr (AudioUnitInitialize(activeUnits[i]));
 	
 	activeNames[i] = (NSString*)allAudioUnits[index].GetAUName();
 	[audioUnitBrowser reloadColumn:0];
 	
-	[self updateGraph];
+	// Connect to graph
+	if (path.size() == 1) {
+		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, activeNodes[i], 0));
+	} else {
+		int j = path[path.size()-2];
+		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[j], 0, activeNodes[i], 0));
+	}
+	
+	// Update graph
+	AUGraphUpdate (graph, NULL);
+	CAShow(graph);	// DEBUG output
+	
+	// Show AudioUnit
 	[self showAudioUnit: activeUnits[i]];
 }
 
 
+
+- (IBAction) deleteAudioUnit :(id)sender {
+	
+}
+
+
+
 - (IBAction) selectAudioUnit :(id)sender {
 	int i = [audioUnitBrowser selectedRowInColumn:0];
-	[self showAudioUnit: activeUnits[i]];
+	[self showAudioUnit: activeUnits[path[i]]];
 }
 
 
@@ -377,7 +362,12 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	// Display the dialog.  If the OK button was pressed, process the files.
 	if ( [openDialog runModal] == NSFileHandlingPanelOKButton ) {
 		fileName = [[(NSURL*)[[openDialog URLs] objectAtIndex:0] path] retain];
-		[self synchronizePlayStopButton];
+		[songName setStringValue:[fileName lastPathComponent]];
+		
+		[self stopMusic:self];
+		[self loadAudioFile:fileName];
+		[playButton setEnabled: YES];
+		[stopButton setEnabled: YES];
 	}
 }
 
@@ -390,48 +380,44 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 	UInt8 *pathName = (UInt8 *)[inAudioFileName UTF8String];
 	
 	verify_noerr (FSPathMakeRef(pathName, &destFSRef, NULL));
-	verify_noerr (AudioFileOpen(&destFSRef, fsRdPerm, 0, &mAFID));
+	if(fileId) {
+		verify_noerr (AudioFileClose(fileId));
+		filePosition = 0;
+	}
+	verify_noerr (AudioFileOpen(&destFSRef, fsRdPerm, 0, &fileId));
 	
-	verify_noerr (AudioUnitSetProperty(	mFileUnit, 
+	verify_noerr (AudioUnitSetProperty(	fileUnit, 
 									   kAudioUnitProperty_ScheduledFileIDs,
 									   kAudioUnitScope_Global,
-									   0, &mAFID, sizeof(mAFID) ));
+									   0, &fileId, sizeof(fileId) ));
 }
 
 
 - (IBAction) stopMusic: (id)sender {
-	AudioUnitReset(mFileUnit, kAudioUnitScope_Global, 0); 	
+	AudioUnitReset(fileUnit, kAudioUnitScope_Global, 0);
+ 	filePosition = 0;
+	playing = NO;
 }
 
 
-
-
 - (IBAction) playPause:(id)sender {
-    if (sender == self)
-        [playButton setState: ([playButton state] == NSOffState) ? NSOnState : NSOffState];
-
+    [playButton setState: ([playButton state] == NSOffState) ? NSOnState : NSOffState];
 	
-    Boolean isRunning = FALSE;
-	verify_noerr (AUGraphIsRunning(mGraph, &isRunning));
-	
-    if (isRunning) {
-        AudioUnitReset(mFileUnit, kAudioUnitScope_Global, 0);
-		// TODO mark where the file is
-        return;
-    }
-	// TODO resume playback
-	
-	// Initialize new file
-	if (fileName == nil) {
-		NSLog(@"AAHHH");
+	playing = !playing;
+	[playButton setState: playing ? NSOnState : NSOffState];
+	if (playing) {
+		// Start/resume playback
+		[self prepareFileAudioUnit];
+	} else {
+		// Record the current position
+		AudioTimeStamp ts;
+		UInt32 size = sizeof(ts);
+		AudioUnitGetProperty(fileUnit, kAudioUnitProperty_CurrentPlayTime, kAudioUnitScope_Global, 0, &ts, &size);
+		filePosition = ts.mSampleTime;
+		
+		// Stop music playback
+		AudioUnitReset(fileUnit, kAudioUnitScope_Global, 0); 
 	}
-	
-	NSLog(@"%@", fileName);
-	
-	[self loadAudioFile:fileName];
-	[songName setStringValue:[fileName lastPathComponent]];
-    
-	[self startGraph];
 }
 
 
@@ -450,13 +436,13 @@ void AudioFileNotificationHandler (void *inRefCon, OSStatus inStatus) {
 
 
 - (NSInteger)browser:(NSBrowser *)sender numberOfRowsInColumn:(NSInteger)column {
-	return numActiveUnits;
+	return path.size();
 }
 
 
 - (void)browser:(NSBrowser *)sender willDisplayCell:(id)cell atRow:(NSInteger)row column:(NSInteger)column {
 	[cell setLeaf: YES];
-	[cell setTitle: activeNames[row]];
+	[cell setTitle: activeNames[path[row]]];
 }
 
 

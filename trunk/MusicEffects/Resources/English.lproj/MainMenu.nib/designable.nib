@@ -138,7 +138,7 @@
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="524948816">
-								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags">604110336</int>
 								<int key="NSCellFlags2">134250496</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="1062317299"/>
@@ -167,7 +167,7 @@
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="3347543">
-								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags">604110336</int>
 								<int key="NSCellFlags2">134250496</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="1062317299"/>
@@ -567,14 +567,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">uiAUViewContainer</string>
-						<reference key="source" ref="1058474778"/>
-						<reference key="destination" ref="616458705"/>
-					</object>
-					<int key="connectionID">287</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="6875431"/>
 						<reference key="destination" ref="1058474778"/>
@@ -661,6 +653,22 @@
 					</object>
 					<int key="connectionID">479</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">viewContainer</string>
+						<reference key="source" ref="1058474778"/>
+						<reference key="destination" ref="616458705"/>
+					</object>
+					<int key="connectionID">480</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">deleteAudioUnit:</string>
+						<reference key="source" ref="1058474778"/>
+						<reference key="destination" ref="393828576"/>
+					</object>
+					<int key="connectionID">481</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -704,9 +712,9 @@
 							<reference ref="121846994"/>
 							<reference ref="237504031"/>
 							<reference ref="393828576"/>
-							<reference ref="616458705"/>
 							<reference ref="6875431"/>
 							<reference ref="796079065"/>
+							<reference ref="616458705"/>
 						</object>
 						<reference key="parent" ref="994033783"/>
 					</object>
@@ -1116,7 +1124,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">479</int>
+			<int key="maxID">481</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1137,6 +1145,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addAudioUnit:</string>
+							<string>deleteAudioUnit:</string>
 							<string>playPause:</string>
 							<string>selectAudioUnit:</string>
 							<string>selectFile:</string>
@@ -1144,6 +1153,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1161,7 +1171,7 @@
 							<string>playButton</string>
 							<string>songName</string>
 							<string>stopButton</string>
-							<string>uiAUViewContainer</string>
+							<string>viewContainer</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
