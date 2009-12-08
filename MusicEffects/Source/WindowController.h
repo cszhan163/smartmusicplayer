@@ -58,14 +58,12 @@ using namespace std;
 #pragma mark IB Actions
 - (IBAction) addAudioUnit:(id)sender;
 - (IBAction) deleteAudioUnit:(id)sender;
-- (IBAction) playPause:(id)sender;
 
+- (IBAction) playPause:(id)sender;
 - (IBAction) stopMusic: (id)sender;
 - (IBAction) selectAudioUnit :(id)sender;
 - (IBAction) selectFile :(id)sender;
 
-
-+ (BOOL) plugInClassIsValid:(Class) pluginClass;
 - (void) cleanup;
 - (void) createGraph;
 - (void) destroyGraph;
