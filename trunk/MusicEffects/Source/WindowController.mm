@@ -19,17 +19,6 @@
 @implementation HostingWindowController
 
 
-+ (BOOL)plugInClassIsValid:(Class) pluginClass {
-	if ([pluginClass conformsToProtocol:@protocol(AUCocoaUIBase)]) {
-		if ([pluginClass instancesRespondToSelector:@selector(interfaceVersion)] &&
-			[pluginClass instancesRespondToSelector:@selector(uiViewForAudioUnit:withSize:)]) {
-			return YES;
-		}
-	}
-    return NO;
-}
-
-
 - (void)awakeFromNib {
 	playing = NO;
 	filePosition = 0;
@@ -117,6 +106,95 @@
 }
 
 
+- (IBAction) addAudioUnit :(id)sender {
+	// Determine AudioUnit to add
+	int index = [audioUnitPopup indexOfSelectedItem] - 1;
+	if (index < 0)
+		return;
+	AudioComponentDescription desc = allAudioUnits[index].Desc();
+	
+	// Determine where to store
+	int i = freeList.front();
+	freeList.pop();
+	path.insert(path.end(), i);
+	
+	// Create new AudioUnit
+	verify_noerr (AUGraphAddNode(graph, &desc, &activeNodes[i]));
+	verify_noerr (AUGraphNodeInfo(graph, activeNodes[i], NULL, &activeUnits[i]));
+	verify_noerr (AudioUnitInitialize(activeUnits[i]));
+	
+	activeNames[i] = (NSString*)allAudioUnits[index].GetAUName();
+	[audioUnitBrowser reloadColumn:0];
+	
+	// Connect to graph
+	if (path.size() == 1) {
+		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, activeNodes[i], 0));
+	} else {
+		int j = path[path.size()-2];
+		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[j], 0, activeNodes[i], 0));
+	}
+	
+	// Update graph
+	AUGraphUpdate (graph, NULL);
+	CAShow(graph);	// DEBUG output
+	
+	// Show AudioUnit
+	[self showAudioUnit: activeUnits[i]];
+}
+
+
+
+- (IBAction) deleteAudioUnit :(id)sender {
+	if (path.size() == 0)
+		return;
+	
+	// Adjust the path representation
+	unsigned int i = [audioUnitBrowser selectedRowInColumn:0];
+	int j = path[i];
+	bool front = i==0;
+	bool end = (unsigned)i==path.size()-1;
+	for (vector<int>::iterator it=path.begin(); it<path.end(); it++)
+		if (*it == j) {
+			path.erase(it);
+			break;
+		}
+	freeList.push(j);
+	[audioUnitBrowser reloadColumn:0];
+	
+	// Update the graph
+	verify_noerr (AUGraphRemoveNode(graph, activeNodes[j]));
+	if (path.size() == 0) {
+		verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, outputNode, 0));
+	} else if (front) {
+		verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, activeNodes[path[i]], 0));
+	} else if (end) {
+		int k = path[i-1];
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[k], 0, outputNode, 0));
+	} else {
+		int k = path[i];
+		int m = path[i-1];
+		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[m], 0, activeNodes[k], 0));
+	}
+	
+	AUGraphUpdate (graph, NULL);
+	CAShow(graph);	// DEBUG output
+	
+	// Show 1st AudioUnit
+	if (path.size() > 0)
+		[self showAudioUnit: activeUnits[path[0]]];
+	else {
+		NSView * view = [[NSView alloc] init];
+		[scrollView setDocumentView:view];
+		[view release];
+	}
+}
+
+
+
 #pragma mark -
 #pragma mark Audio Unit
 
@@ -169,10 +247,6 @@
 			Class factoryClass = [viewBundle classNamed:factoryClassName];
 			NSAssert (factoryClass != nil, @"Error getting AU view's factory class from bundle");
 			
-			// make sure 'factoryClass' implements the AUCocoaUIBase protocol
-			NSAssert(	[HostingWindowController plugInClassIsValid:factoryClass],
-					 @"AU view's factory class does not properly implement the AUCocoaUIBase protocol");
-			
 			// make a factory
 			id factoryInstance = [[[factoryClass alloc] init] autorelease];
 			NSAssert (factoryInstance != nil, @"Could not create an instance of the AU view factory");
@@ -193,7 +267,7 @@
 	}
 	
 	if (!wasAbleToLoadCustomView) {
-		// [B] Otherwise show generic Cocoa view
+		// Show generic Cocoa view
 		AUView = [[AUGenericView alloc] initWithAudioUnit:inAU];
 		[(AUGenericView *)AUView setShowsExpertParameters:YES];
 		[AUView autorelease];
@@ -272,6 +346,22 @@
 }
 
 
+- (void) loadAudioFile:(NSString *)inAudioFileName {
+	FSRef destFSRef;
+	UInt8 *pathName = (UInt8 *)[inAudioFileName UTF8String];
+	
+	verify_noerr (FSPathMakeRef(pathName, &destFSRef, NULL));
+	if(fileId) {
+		verify_noerr (AudioFileClose(fileId));
+		filePosition = 0;
+	}
+	verify_noerr (AudioFileOpen(&destFSRef, fsRdPerm, 0, &fileId));
+	verify_noerr (AudioUnitSetProperty(	fileUnit, 
+									   kAudioUnitProperty_ScheduledFileIDs,
+									   kAudioUnitScope_Global,
+									   0, &fileId, sizeof(fileId) ));
+}
+
 
 #pragma mark -
 #pragma mark Interaction
@@ -296,62 +386,18 @@
 }
 
 
-- (IBAction) addAudioUnit :(id)sender {
-	// Determine AudioUnit to add
-	int index = [audioUnitPopup indexOfSelectedItem] - 1;
-	if (index < 0)
-		return;
-	AudioComponentDescription desc = allAudioUnits[index].Desc();
-	
-	// Determine where to store
-	int i = freeList.front();
-	freeList.pop();
-	path.insert(path.end(), i);
-	
-	// TODO might need to clean up
-	
-	// Create new AudioUnit
-	verify_noerr (AUGraphAddNode(graph, &desc, &activeNodes[i]));
-	verify_noerr (AUGraphNodeInfo(graph, activeNodes[i], NULL, &activeUnits[i]));
-	verify_noerr (AudioUnitInitialize(activeUnits[i]));
-	
-	activeNames[i] = (NSString*)allAudioUnits[index].GetAUName();
-	[audioUnitBrowser reloadColumn:0];
-	
-	// Connect to graph
-	if (path.size() == 1) {
-		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (graph, fileNode, 0, activeNodes[i], 0));
-	} else {
-		int j = path[path.size()-2];
-		verify_noerr (AUGraphDisconnectNodeInput(graph, outputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[i], 0, outputNode, 0));
-		verify_noerr (AUGraphConnectNodeInput (graph, activeNodes[j], 0, activeNodes[i], 0));
-	}
-	
-	// Update graph
-	AUGraphUpdate (graph, NULL);
-	CAShow(graph);	// DEBUG output
-	
-	// Show AudioUnit
-	[self showAudioUnit: activeUnits[i]];
-}
 
 
-
-- (IBAction) deleteAudioUnit :(id)sender {
-	
-}
-
-
-
+/** selectAudioUnit
+ Show the UI for the audio unit that is selected. */
 - (IBAction) selectAudioUnit :(id)sender {
 	int i = [audioUnitBrowser selectedRowInColumn:0];
 	[self showAudioUnit: activeUnits[path[i]]];
 }
 
 
+/** selectFile
+ Show dialog and open file if a valid one is selected. */
 - (IBAction) selectFile :(id)sender {
 	// Create the file chooser
 	NSOpenPanel * openDialog = [NSOpenPanel openPanel];
@@ -361,6 +407,9 @@
 	
 	// Display the dialog.  If the OK button was pressed, process the files.
 	if ( [openDialog runModal] == NSFileHandlingPanelOKButton ) {
+		// TODO ensure only a valid format
+		
+		
 		fileName = [[(NSURL*)[[openDialog URLs] objectAtIndex:0] path] retain];
 		[songName setStringValue:[fileName lastPathComponent]];
 		
@@ -369,27 +418,6 @@
 		[playButton setEnabled: YES];
 		[stopButton setEnabled: YES];
 	}
-}
-
-#pragma mark -
-#pragma mark Playback
-
-
-- (void) loadAudioFile:(NSString *)inAudioFileName {
-	FSRef destFSRef;
-	UInt8 *pathName = (UInt8 *)[inAudioFileName UTF8String];
-	
-	verify_noerr (FSPathMakeRef(pathName, &destFSRef, NULL));
-	if(fileId) {
-		verify_noerr (AudioFileClose(fileId));
-		filePosition = 0;
-	}
-	verify_noerr (AudioFileOpen(&destFSRef, fsRdPerm, 0, &fileId));
-	
-	verify_noerr (AudioUnitSetProperty(	fileUnit, 
-									   kAudioUnitProperty_ScheduledFileIDs,
-									   kAudioUnitScope_Global,
-									   0, &fileId, sizeof(fileId) ));
 }
 
 
