@@ -6,7 +6,6 @@
 //  Copyright 2009 Washington University in St. Louis. All rights reserved.
 //
 
-
 #import <Cocoa/Cocoa.h>
 #include <AudioToolbox/AudioToolbox.h>
 #include <AudioUnit/AudioUnit.h>
@@ -64,7 +63,6 @@ using namespace std;
 - (IBAction) selectAudioUnit :(id)sender;
 - (IBAction) selectFile :(id)sender;
 
-- (void) cleanup;
 - (void) createGraph;
 - (void) destroyGraph;
 - (void) showAudioUnit:(AudioUnit)inAU;

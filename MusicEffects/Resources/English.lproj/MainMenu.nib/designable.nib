@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
+			<integer value="21"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -143,7 +143,7 @@
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="1062317299"/>
 								<reference key="NSControlView" ref="121846994"/>
-								<int key="NSButtonFlags">-2033434369</int>
+								<int key="NSButtonFlags">-926138113</int>
 								<int key="NSButtonFlags2">6</int>
 								<object class="NSCustomResource" key="NSNormalImage">
 									<string key="NSClassName">NSImage</string>
@@ -706,7 +706,6 @@
 						<reference key="object" ref="763035146"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="314734208"/>
 							<reference ref="592452355"/>
 							<reference ref="564108197"/>
 							<reference ref="121846994"/>
@@ -715,6 +714,7 @@
 							<reference ref="6875431"/>
 							<reference ref="796079065"/>
 							<reference ref="616458705"/>
+							<reference ref="314734208"/>
 						</object>
 						<reference key="parent" ref="994033783"/>
 					</object>
@@ -1058,9 +1058,9 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{423, 114}, {538, 375}}</string>
+					<string>{{423, 113}, {538, 375}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{423, 114}, {538, 375}}</string>
+					<string>{{423, 113}, {538, 375}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
