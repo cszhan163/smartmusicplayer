@@ -55,13 +55,15 @@
 
 // parameters
 static const float kDefaultValue_ParamOne = 0.5;
+static const int kDefaultValue_ProcessCounter = 0;
 
 static CFStringRef kParameterOneName = CFSTR("Parameter One");
+static CFStringRef kProcessCounterName = CFSTR("Process Loop Counter");
 
 enum {
 	kParam_One =0,
-	//Add your parameters here...
-	kNumberOfParameters=1
+	kProcessCounter =1,
+	kNumberOfParameters=2
 };
 
 #pragma mark ____AUFoo
