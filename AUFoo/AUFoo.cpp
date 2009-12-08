@@ -190,7 +190,7 @@ void		AUFoo::AUFooKernel::Process(	const Float32 	*inSourceP,
 		sourceP += inNumChannels;
 		Float32 outputSample = inputSample;
 		if (applyFlange) {
-			outputSample = outputSample * 1.033;
+			outputSample = outputSample * 2.3333;
 		}
 		*destP = outputSample;
 		destP += inNumChannels;
