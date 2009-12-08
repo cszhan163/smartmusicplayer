@@ -49,7 +49,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 COMPONENT_ENTRY(AUFoo)
-
+static int ProcessLoopCounter = 0;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	AUFoo::AUFoo
@@ -60,6 +60,7 @@ AUFoo::AUFoo(AudioUnit component)
 	CreateElements();
 	Globals()->UseIndexedParameters(kNumberOfParameters);
 	SetParameter(kParam_One, kDefaultValue_ParamOne );
+	SetParameter(kProcessCounter, kDefaultValue_ProcessCounter);
         
 #if AU_DEBUG_DISPATCHER
 	mDebugDispatcher = new AUDebugDispatcher (this);
@@ -103,6 +104,13 @@ ComponentResult		AUFoo::GetParameterInfo(AudioUnitScope		inScope,
                 outParameterInfo.maxValue = 1;
                 outParameterInfo.defaultValue = kDefaultValue_ParamOne;
                 break;
+			case kProcessCounter:
+				AUBase::FillInParameterName (outParameterInfo, kProcessCounterName, false);
+				outParameterInfo.unit = kAudioUnitParameterUnit_SampleFrames;
+				outParameterInfo.minValue = 0;
+				outParameterInfo.maxValue = sizeof(int);
+				outParameterInfo.defaultValue = kDefaultValue_ProcessCounter;
+				break;
             default:
                 result = kAudioUnitErr_InvalidParameter;
                 break;
@@ -159,37 +167,31 @@ void		AUFoo::AUFooKernel::Process(	const Float32 	*inSourceP,
                                                     UInt32			inNumChannels, // for version 2 AudioUnits inNumChannels is always 1
                                                     bool			&ioSilence )
 {	
+	const int ProcessCounterToApplyFlange = 0;
+	bool applyFlange = false;
+	if (ProcessLoopCounter >= ProcessCounterToApplyFlange) {//GetParameter(kProcessCounter) >= ProcessCounterToApplyFlange) {
+		ProcessLoopCounter = 0;
+		applyFlange = true;		
+		//SetParameter(kProcessCounter, 0);
+	} else {
+		applyFlange = false;
+		ProcessLoopCounter += 1;
+		//SetParameter(kProcessCounter, GetParameter(kProcessCounter) + 1);
+	}
+	
 	UInt32 nSampleFrames = inFramesToProcess;
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
-	Float32 gain = GetParameter( kParam_One );
-	Float32 highFrame = 0;
-	Float32 lowFrame = 0;
-	
-	//First loop: Find the high/low frequencies in the sample frames. We only care about the first channel because we're lazy.
-	while (nSampleFrames-- > 0) {
-		Float32 inputSample = *sourceP;
-		if (inputSample > highFrame) {
-			highFrame = inputSample;
-		}
-		if (inputSample < lowFrame) {
-			lowFrame = inputSample;
-		}
-	}
-	
-	Float32 midFrame = (highFrame - lowFrame)/2;
+	//Float32 gain = GetParameter( kParam_One );
 	nSampleFrames = inFramesToProcess;
 	
-	//Second loop: push the frequencies to the high/low extremes. Basically, flatten any curves by applying compression.
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;
 		sourceP += inNumChannels;
-		if (inputSample >= midFrame) {
-			inputSample = highFrame;
-		} else {
-			inputSample = lowFrame;
-		}
 		Float32 outputSample = inputSample;
+		if (applyFlange) {
+			outputSample = outputSample * 1.033;
+		}
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
