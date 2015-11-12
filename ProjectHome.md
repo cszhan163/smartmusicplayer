@@ -1,0 +1,1 @@
+A course project for CSE 520S Fall 2009 at Washington University in St. Louis. The goal of the project is to create a music player that listens for ambient noises and adjusts the volume accordingly.
